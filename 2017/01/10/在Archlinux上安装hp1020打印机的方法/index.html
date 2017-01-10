@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文章分类 | Razor</title>
+  <title>在Archlinux上安装hp1020打印机的方法 | Razor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="奥卡姆小剃刀的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文章分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="从windows换到linux，在打印机的问题上折腾了不少时间，网上各种教程不少，也是过很多，比如用hplip的，hplip+cups的，最后我是用foo2zjs成功安装了我的hp1020.当然其他型号的也可以依葫芦画瓢。下面开始。  
+下载开源驱动foo2zjs从这里进入foo2zjs页面。里面有详细的英文指南。英语不好的同鞋请跟着我的步骤走。在命令行窗口输入以下命令下载foo2zjs套件：$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Archlinux上安装hp1020打印机的方法">
+<meta property="og:url" content="http://yoursite.com/2017/01/10/在Archlinux上安装hp1020打印机的方法/index.html">
 <meta property="og:site_name" content="Razor">
-<meta property="og:description" content="奥卡姆小剃刀的博客">
-<meta property="og:updated_time" content="2017-01-10T02:15:52.684Z">
+<meta property="og:description" content="从windows换到linux，在打印机的问题上折腾了不少时间，网上各种教程不少，也是过很多，比如用hplip的，hplip+cups的，最后我是用foo2zjs成功安装了我的hp1020.当然其他型号的也可以依葫芦画瓢。下面开始。  
+下载开源驱动foo2zjs从这里进入foo2zjs页面。里面有详细的英文指南。英语不好的同鞋请跟着我的步骤走。在命令行窗口输入以下命令下载foo2zjs套件：$">
+<meta property="og:updated_time" content="2017-01-10T07:09:42.688Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文章分类">
-<meta name="twitter:description" content="奥卡姆小剃刀的博客">
+<meta name="twitter:title" content="在Archlinux上安装hp1020打印机的方法">
+<meta name="twitter:description" content="从windows换到linux，在打印机的问题上折腾了不少时间，网上各种教程不少，也是过很多，比如用hplip的，hplip+cups的，最后我是用foo2zjs成功安装了我的hp1020.当然其他型号的也可以依葫芦画瓢。下面开始。  
+下载开源驱动foo2zjs从这里进入foo2zjs页面。里面有详细的英文指南。英语不好的同鞋请跟着我的步骤走。在命令行窗口输入以下命令下载foo2zjs套件：$">
   
     <link rel="alternative" href="/atom.xml" title="Razor" type="application/atom+xml">
   
@@ -157,20 +160,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-在Archlinux上安装hp1020打印机的方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      文章分类
+      在Archlinux上安装hp1020打印机的方法
     </h1>
   
 
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2017-01-10T01:27:57.000Z" itemprop="datePublished">2017-01-10</time>
+        <a href="/2017/01/10/在Archlinux上安装hp1020打印机的方法/" class="archive-article-date">
+  	<time datetime="2017-01-10T04:37:02.000Z" itemprop="datePublished">2017-01-10</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -182,22 +185,54 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-<div class="category-all-page">
-  <div class="category-all-title">
-   
-  </div>
   
-  <div class="category-all">
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
-  </div>
-  
+
+
+<div id="toc" class="toc-article">
+  <strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载开源驱动foo2zjs"><span class="toc-text">下载开源驱动foo2zjs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载好后用以下命令解压并安装"><span class="toc-text">下载好后用以下命令解压并安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用cd命令，进入解压好的目录"><span class="toc-text">用cd命令，进入解压好的目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用make命令编译"><span class="toc-text">用make命令编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取针对某一型号打印机的一些额外文件"><span class="toc-text">获取针对某一型号打印机的一些额外文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#然后正式安装驱动"><span class="toc-text">然后正式安装驱动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装CUPS"><span class="toc-text">安装CUPS</span></a></li></ol>
 </div>
+
+
+
+    <p>从windows换到linux，在打印机的问题上折腾了不少时间，网上各种教程不少，也是过很多，比如用hplip的，hplip+cups的，最后我是用foo2zjs成功安装了我的hp1020.当然其他型号的也可以依葫芦画瓢。下面开始。  </p>
+<h2 id="下载开源驱动foo2zjs"><a href="#下载开源驱动foo2zjs" class="headerlink" title="下载开源驱动foo2zjs"></a>下载开源驱动foo2zjs</h2><p>从<a href="http://foo2zjs.rkkda.com/" target="_blank" rel="external">这里</a>进入foo2zjs页面。里面有详细的英文指南。英语不好的同鞋请跟着我的步骤走。<br>在命令行窗口输入以下命令下载foo2zjs套件：<br><code>$ wget -O foo2zjs.tar.gz http://foo2zjs.rkkda.com/foo2zjs.tar.gz</code><br>你应该知道代码是从“$”符号后开始的：D</p>
+<h2 id="下载好后用以下命令解压并安装"><a href="#下载好后用以下命令解压并安装" class="headerlink" title="下载好后用以下命令解压并安装"></a>下载好后用以下命令解压并安装</h2><p><code>$ tar zxf foo2zjs.tar.gz</code></p>
+<h3 id="用cd命令，进入解压好的目录"><a href="#用cd命令，进入解压好的目录" class="headerlink" title="用cd命令，进入解压好的目录"></a>用cd命令，进入解压好的目录</h3><p><code>$ cd foo2zjs</code> </p>
+<h3 id="用make命令编译"><a href="#用make命令编译" class="headerlink" title="用make命令编译"></a>用make命令编译</h3><p><code>$ make</code></p>
+<h3 id="获取针对某一型号打印机的一些额外文件"><a href="#获取针对某一型号打印机的一些额外文件" class="headerlink" title="获取针对某一型号打印机的一些额外文件"></a>获取针对某一型号打印机的一些额外文件</h3><p><code>$ ./getweb xxxx</code><br>这里的xxxx对应你的打印机型号，比如我是hp1020，命令行则为：<br><code>$ ./getweb 1020</code>  </p>
+<h3 id="然后正式安装驱动"><a href="#然后正式安装驱动" class="headerlink" title="然后正式安装驱动"></a>然后正式安装驱动</h3><p>先获取root权限<br><code>$ su</code><br>然后再输入命令：<br><code>$make install</code>  </p>
+<h2 id="安装CUPS"><a href="#安装CUPS" class="headerlink" title="安装CUPS"></a>安装CUPS</h2><p>CUPS 是一个打印机管理套件。安装驱动做的是为了让计算机能够识别到你的打印机，而安装CUPS 是为了让计算机和打印机建立联系。<br>在UBUNTU16.04及以上的系统中输入以下命令获取CUPS：<br><code>$ sudo apt install cups</code><br>在Archlinux系统中用以下命令获取CUPS：<br><code>$ sudo pacman -S cups</code><br>安装好后用任意浏览器访问地址：<em><a href="http://localhost:631" target="_blank" rel="external">http://localhost:631</a></em><br>然后你就会看到一个管理界面，点击上方菜单你栏的Administrator，然后用root登录，输入密码，随后点Add printer。<br>正常情况下到这一步你应该能看到打印机的具体型号，比如说HP1020XXXXX，然后跟着导航走就可以了。<br>以上就是我的安装方法。供参考。</p>
+
+  
 
     </div>
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -247,7 +282,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/categories/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/01/10/在Archlinux上安装hp1020打印机的方法/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -259,6 +294,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/10/为什么要输出自己的知识/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">为什么要输出自己的知识</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
@@ -295,7 +340,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
