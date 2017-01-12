@@ -6,24 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xrazor.net">
-  <title>pip换源方法 | Razor</title>
+  <title>用urllib.quote进行URL编码 | Razor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用自带的pip源简直是龟速，换成国内的镜像就快很多，比如豆瓣的镜像：http://pypi.douban.com速度就非常的快  
-临时换源方法pip install pythonModuleName -i https://pypi.douban.com/simplepythonMudleName直接替换为你想要下载的包的名字即可  
-永久换源方法我是archlinux系统，需要修改的文件是/ro">
+  <meta name="description" content="python的url编码函数是在类urllib库中，使用方法是：  
+
+urllib.quote(string[, safe])，除了三个符号“_.-”外，将所有符号编码，后面的参数safe是不编码的字符.  
+
+简单的例子如下：
+&amp;gt;&amp;gt;&amp;gt; import urllib
+&amp;gt;&amp;gt;&amp;gt; urllib.quote(&amp;quot;a-b-c&amp;quot;)
+&amp;apos;a-b-c&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pip换源方法">
-<meta property="og:url" content="http://xrazor.net/2017/01/11/关于pip换源方法/index.html">
+<meta property="og:title" content="用urllib.quote进行URL编码">
+<meta property="og:url" content="http://xrazor.net/2017/01/12/用urllib-quote进行URL编码/index.html">
 <meta property="og:site_name" content="Razor">
-<meta property="og:description" content="用自带的pip源简直是龟速，换成国内的镜像就快很多，比如豆瓣的镜像：http://pypi.douban.com速度就非常的快  
-临时换源方法pip install pythonModuleName -i https://pypi.douban.com/simplepythonMudleName直接替换为你想要下载的包的名字即可  
-永久换源方法我是archlinux系统，需要修改的文件是/ro">
-<meta property="og:updated_time" content="2017-01-11T02:19:17.009Z">
+<meta property="og:description" content="python的url编码函数是在类urllib库中，使用方法是：  
+
+urllib.quote(string[, safe])，除了三个符号“_.-”外，将所有符号编码，后面的参数safe是不编码的字符.  
+
+简单的例子如下：
+&amp;gt;&amp;gt;&amp;gt; import urllib
+&amp;gt;&amp;gt;&amp;gt; urllib.quote(&amp;quot;a-b-c&amp;quot;)
+&amp;apos;a-b-c&amp;">
+<meta property="og:updated_time" content="2017-01-12T04:33:13.851Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pip换源方法">
-<meta name="twitter:description" content="用自带的pip源简直是龟速，换成国内的镜像就快很多，比如豆瓣的镜像：http://pypi.douban.com速度就非常的快  
-临时换源方法pip install pythonModuleName -i https://pypi.douban.com/simplepythonMudleName直接替换为你想要下载的包的名字即可  
-永久换源方法我是archlinux系统，需要修改的文件是/ro">
+<meta name="twitter:title" content="用urllib.quote进行URL编码">
+<meta name="twitter:description" content="python的url编码函数是在类urllib库中，使用方法是：  
+
+urllib.quote(string[, safe])，除了三个符号“_.-”外，将所有符号编码，后面的参数safe是不编码的字符.  
+
+简单的例子如下：
+&amp;gt;&amp;gt;&amp;gt; import urllib
+&amp;gt;&amp;gt;&amp;gt; urllib.quote(&amp;quot;a-b-c&amp;quot;)
+&amp;apos;a-b-c&amp;">
   
     <link rel="alternative" href="/atom.xml" title="Razor" type="application/atom+xml">
   
@@ -163,20 +178,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-关于pip换源方法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-用urllib-quote进行URL编码" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      pip换源方法
+      用urllib.quote进行URL编码
     </h1>
   
 
         
-        <a href="/2017/01/11/关于pip换源方法/" class="archive-article-date">
-  	<time datetime="2017-01-11T02:04:58.000Z" itemprop="datePublished">2017-01-11</time>
+        <a href="/2017/01/12/用urllib-quote进行URL编码/" class="archive-article-date">
+  	<time datetime="2017-01-12T04:24:07.000Z" itemprop="datePublished">2017-01-12</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -193,15 +208,28 @@
 
 <div id="toc" class="toc-article">
   <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#临时换源方法"><span class="toc-text">临时换源方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#永久换源方法"><span class="toc-text">永久换源方法</span></a></li></ol>
+
 </div>
 
 
 
-    <p>用自带的pip源简直是龟速，换成国内的镜像就快很多，比如豆瓣的镜像：<br><em><a href="http://pypi.douban.com" target="_blank" rel="external">http://pypi.douban.com</a></em><br>速度就非常的快  </p>
-<h3 id="临时换源方法"><a href="#临时换源方法" class="headerlink" title="临时换源方法"></a>临时换源方法</h3><p><code>pip install pythonModuleName -i https://pypi.douban.com/simple</code><br>pythonMudleName直接替换为你想要下载的包的名字即可  </p>
-<h3 id="永久换源方法"><a href="#永久换源方法" class="headerlink" title="永久换源方法"></a>永久换源方法</h3><p>我是archlinux系统，需要修改的文件是<code>/root/.pip/pip.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">index-url = https://pypi.douban.com/simple</div></pre></td></tr></table></figure></p>
-<p>这样改好后就相当于更改了pip的默认下载源</p>
+    <p>python的url编码函数是在类urllib库中，使用方法是：  </p>
+<blockquote>
+<p>urllib.quote(string[, safe])，除了三个符号“_.-”外，将所有符号编码，后面的参数safe是不编码的字符.  </p>
+</blockquote>
+<p>简单的例子如下：</p>
+<pre><code>&gt;&gt;&gt; import urllib
+&gt;&gt;&gt; urllib.quote(&quot;a-b-c&quot;)
+&apos;a-b-c&apos;
+&gt;&gt;&gt; urllib.quote(&quot;a+b+c&quot;)
+&apos;a%2Bb%2Bc&apos;
+&gt;&gt;&gt; urllib.quote(&quot;http://test.com/a+b+c&quot;)
+&apos;http%3A//test.com/a%2Bb%2Bc&apos;
+&gt;&gt;&gt; urllib.quote(&quot;http://test.com/a+b+c&quot;, &quot;:/&quot;)
+&apos;http://test.com/a%2Bb%2Bc&apos;
+&gt;&gt;&gt; urllib.quote(&quot;http://test.com/?q=a+b+c&quot;, &quot;:?=/&quot;)
+&apos;http://test.com/?q=a%2Bb%2Bc&apos;
+</code></pre><p>所以urllib.quote的作用是使生成的更符合规范的URL</p>
 
   
 
@@ -281,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/2017/01/11/关于pip换源方法/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/2017/01/12/用urllib-quote进行URL编码/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -295,18 +323,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/01/12/用urllib-quote进行URL编码/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          用urllib.quote进行URL编码
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/01/10/在Archlinux上安装hp1020打印机的方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">在Archlinux上安装hp1020打印机的方法</div>
+    <a href="/2017/01/11/关于pip换源方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pip换源方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
