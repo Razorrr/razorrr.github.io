@@ -9,18 +9,18 @@
   <title>scrapy中对unicode的处理 | Razor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="用scrapy爬虫框架爬取的数据，在调用extract()后， 默认数据返回的编码格式是unicode， 比如中文就会显示为\xe7\x94等等。为了使之在存储中显示为中文，可在pipeline.py中处理如下：  
-123456789101112131415161718class SeekjobPipeline(object):    def __init__(self):        sel">
+12345678910111213141516171819class SeekjobPipeline(object):    def __init__(self):        s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="scrapy中对unicode的处理">
 <meta property="og:url" content="http://xrazor.net/2017/01/15/scrapy中对unicode的处理/index.html">
 <meta property="og:site_name" content="Razor">
 <meta property="og:description" content="用scrapy爬虫框架爬取的数据，在调用extract()后， 默认数据返回的编码格式是unicode， 比如中文就会显示为\xe7\x94等等。为了使之在存储中显示为中文，可在pipeline.py中处理如下：  
-123456789101112131415161718class SeekjobPipeline(object):    def __init__(self):        sel">
-<meta property="og:updated_time" content="2017-01-15T04:21:53.192Z">
+12345678910111213141516171819class SeekjobPipeline(object):    def __init__(self):        s">
+<meta property="og:updated_time" content="2017-01-21T01:28:45.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scrapy中对unicode的处理">
 <meta name="twitter:description" content="用scrapy爬虫框架爬取的数据，在调用extract()后， 默认数据返回的编码格式是unicode， 比如中文就会显示为\xe7\x94等等。为了使之在存储中显示为中文，可在pipeline.py中处理如下：  
-123456789101112131415161718class SeekjobPipeline(object):    def __init__(self):        sel">
+12345678910111213141516171819class SeekjobPipeline(object):    def __init__(self):        s">
   
     <link rel="alternative" href="/atom.xml" title="Razor" type="application/atom+xml">
   
@@ -196,7 +196,7 @@
 
 
     <p>用scrapy爬虫框架爬取的数据，在调用extract()后， 默认数据返回的编码格式是unicode， 比如中文就会显示为\xe7\x94等等。<br>为了使之在存储中显示为中文，可在pipeline.py中处理如下：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class SeekjobPipeline(object):</div><div class="line"></div><div class="line">    def __init__(self):</div><div class="line">        self.file = codecs.open(&apos;../results.json&apos;, &apos;wb&apos;, encoding=&apos;utf-8&apos;)</div><div class="line">    def process_item(self, item, spider):</div><div class="line">        line = json.dumps(dict(item)) + &apos;\n&apos;</div><div class="line">        self.file.write(line.decode(&quot;unicode_escape&quot;))</div><div class="line">        return item  </div><div class="line">```  </div><div class="line">其中的process_item方法是必须调用的用来处理item，并且返回值必须为Item类的对象，或者是抛出DropItem异常。并且上述方法将得到的item实现解码，以便正常显示中文，最终保存到创建的results.json文件中。  </div><div class="line">而json.dumps是用来将Python中（字典，列表等）变量格式化成json字符串输出。</div><div class="line">&gt;转中文的关键点是这一句:&apos;line.decode(&quot;unicode_escape&quot;)&apos;  </div><div class="line"></div><div class="line">**注意：在编写完pipeline后，为了能够启动它，必须将其加入到ITEM_PIPLINES配置中，即在settings.py中加入下面一句：**  </div><div class="line">```  </div><div class="line">ITEM_PIPELINES = &#123;</div><div class="line">    &apos;seekjob.pipelines.SeekjobPipeline&apos;: 300,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class SeekjobPipeline(object):</div><div class="line"></div><div class="line">    def __init__(self):</div><div class="line">        self.file = codecs.open(&apos;../results.json&apos;, &apos;wb&apos;, encoding=&apos;utf-8&apos;)</div><div class="line">    def process_item(self, item, spider):</div><div class="line">        line = json.dumps(dict(item)) + &apos;\n&apos;</div><div class="line">        self.file.write(line.decode(&quot;unicode_escape&quot;))</div><div class="line">        return item  </div><div class="line">```  </div><div class="line">  </div><div class="line">其中的process_item方法是必须调用的用来处理item，并且返回值必须为Item类的对象，或者是抛出DropItem异常。并且上述方法将得到的item实现解码，以便正常显示中文，最终保存到创建的results.json文件中。  </div><div class="line">而json.dumps是用来将Python中（字典，列表等）变量格式化成json字符串输出。</div><div class="line">&gt;转中文的关键点是这一句:&apos;line.decode(&quot;unicode_escape&quot;)&apos;  </div><div class="line"></div><div class="line">**注意：在编写完pipeline后，为了能够启动它，必须将其加入到ITEM_PIPLINES配置中，即在settings.py中加入下面一句：**  </div><div class="line">```  </div><div class="line">ITEM_PIPELINES = &#123;</div><div class="line">    &apos;seekjob.pipelines.SeekjobPipeline&apos;: 300,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
   
 
