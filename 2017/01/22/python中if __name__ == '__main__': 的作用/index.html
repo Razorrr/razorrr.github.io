@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xrazor.net">
-  <title>Razor</title>
+  <title>python中&quot;if __name__ == &#39;__main__&#39;:&quot; 的作用 | Razor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mFFj4EzRTb">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Razor">
-<meta property="og:url" content="http://xrazor.net/baidu_verify_mFFj4EzRTb.html">
+  <meta name="description" content="先给出一个代码的样例，譬如你有一个文档叫test.py：  
+1234567def test111():      print &amp;quot;正在执行111号模块&amp;quot;      def test222():      print &amp;quot;正在执行222号模块&amp;quot;  if __name__ == &amp;apos;__main__&amp;apos;:     test111()    test">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python中"if __name__ == '__main__':" 的作用">
+<meta property="og:url" content="http://xrazor.net/2017/01/22/python中if __name__ == '__main__': 的作用/index.html">
 <meta property="og:site_name" content="Razor">
-<meta property="og:description" content="mFFj4EzRTb">
-<meta property="og:updated_time" content="2017-01-10T12:13:16.226Z">
+<meta property="og:description" content="先给出一个代码的样例，譬如你有一个文档叫test.py：  
+1234567def test111():      print &amp;quot;正在执行111号模块&amp;quot;      def test222():      print &amp;quot;正在执行222号模块&amp;quot;  if __name__ == &amp;apos;__main__&amp;apos;:     test111()    test">
+<meta property="og:updated_time" content="2017-01-22T03:29:09.605Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Razor">
-<meta name="twitter:description" content="mFFj4EzRTb">
+<meta name="twitter:title" content="python中"if __name__ == '__main__':" 的作用">
+<meta name="twitter:description" content="先给出一个代码的样例，譬如你有一个文档叫test.py：  
+1234567def test111():      print &amp;quot;正在执行111号模块&amp;quot;      def test222():      print &amp;quot;正在执行222号模块&amp;quot;  if __name__ == &amp;apos;__main__&amp;apos;:     test111()    test">
   
     <link rel="alternative" href="/atom.xml" title="Razor" type="application/atom+xml">
   
@@ -157,8 +160,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-python中if __name__ == &#39;__main__&#39;: 的作用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python中&quot;if __name__ == &#39;__main__&#39;:&quot; 的作用
+    </h1>
+  
+
+        
+        <a href="/2017/01/22/python中if __name__ == '__main__': 的作用/" class="archive-article-date">
+  	<time datetime="2017-01-22T03:14:16.000Z" itemprop="datePublished">2017-01-22</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -167,14 +190,47 @@
 
 
 
-    mFFj4EzRTb
+    <p>先给出一个代码的样例，譬如你有一个文档叫test.py：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">def test111():  </div><div class="line">    print &quot;正在执行111号模块&quot;      </div><div class="line">def test222():  </div><div class="line">    print &quot;正在执行222号模块&quot;  </div><div class="line">if __name__ == &apos;__main__&apos;: </div><div class="line">    test111()</div><div class="line">    test222()</div></pre></td></tr></table></figure>
+<p>因为<code>&quot;__name__&quot;</code>是python的一个内置函数，当程序完整执行时，python会把 <code>__name__ = __main__</code>； <strong>当程序部分执行时（即调用其中的一个def），<code>__name__</code>= 模块名字。</strong>  </p>
+<p>两种不同的情况执行结果如下：  </p>
+<ol>
+<li><p>当直接执行test.py 的时候，<code>__name__ = __main__</code>，此时输出结果为：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">正在执行111号模块</div><div class="line">正在执行222号模块</div></pre></td></tr></table></figure>
+</li>
+<li><p>当只调用test111（）时，<code>__name__ = test111（）</code>，此时输出结果为：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">正在执行111号模块</div></pre></td></tr></table></figure></li>
+</ol>
+
   
 
     </div>
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -224,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/baidu_verify_mFFj4EzRTb.html" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/2017/01/22/python中if __name__ == '__main__': 的作用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -236,6 +292,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/15/scrapy中对unicode的处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">scrapy中对unicode的处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
@@ -272,7 +338,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
