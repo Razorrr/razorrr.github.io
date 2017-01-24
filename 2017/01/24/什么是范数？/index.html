@@ -6,27 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xrazor.net">
-  <title>机器学习方法=模型+策略+算法 | Razor</title>
+  <title>什么是范数？ | Razor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="机器学习方法都是由模型、策略、算法构成的，可简单表示为1方法 = 模型 + 策略 + 算法
-模型机器学习首先考虑的是要学习什么样的模型，比如说：在监督学习过程中，模型就是所要学习的 条件概率分布 或 决策函数。即：1模型 = 条件概率分布 | 决策函数
-而模型的假设空间，则是包含了所有 分布 或 函数 的集合。通常假设空间里的 分布 或 函数 有无穷多个。  
-策略策略，就是按照什么方法去选择最优">
+  <meta name="description" content="基本概念范数，是具有“长度”概念的函数。比如，二维欧几里德空间里面，用一个箭头表示矢量，对应范数就是这矢量的长度。一维空间上它是绝对值，二维空间上它是模。是不是没明白？ 要想搞懂这个，需要一些其他的知识。
+补给知识1. 函数与几何的关系函数是几何的抽象概括，几何是函数的具体描述。但是，当函数超过三维时，就难以获得较好的想象。于是需要引入映射的概念。
+2. 映射与矩阵的关系之前讲到三维以上几何就不好">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习方法=模型+策略+算法">
-<meta property="og:url" content="http://xrazor.net/2017/01/23/机器学习方法-模型-策略-算法/index.html">
+<meta property="og:title" content="什么是范数？">
+<meta property="og:url" content="http://xrazor.net/2017/01/24/什么是范数？/index.html">
 <meta property="og:site_name" content="Razor">
-<meta property="og:description" content="机器学习方法都是由模型、策略、算法构成的，可简单表示为1方法 = 模型 + 策略 + 算法
-模型机器学习首先考虑的是要学习什么样的模型，比如说：在监督学习过程中，模型就是所要学习的 条件概率分布 或 决策函数。即：1模型 = 条件概率分布 | 决策函数
-而模型的假设空间，则是包含了所有 分布 或 函数 的集合。通常假设空间里的 分布 或 函数 有无穷多个。  
-策略策略，就是按照什么方法去选择最优">
-<meta property="og:updated_time" content="2017-01-23T06:00:59.836Z">
+<meta property="og:description" content="基本概念范数，是具有“长度”概念的函数。比如，二维欧几里德空间里面，用一个箭头表示矢量，对应范数就是这矢量的长度。一维空间上它是绝对值，二维空间上它是模。是不是没明白？ 要想搞懂这个，需要一些其他的知识。
+补给知识1. 函数与几何的关系函数是几何的抽象概括，几何是函数的具体描述。但是，当函数超过三维时，就难以获得较好的想象。于是需要引入映射的概念。
+2. 映射与矩阵的关系之前讲到三维以上几何就不好">
+<meta property="og:updated_time" content="2017-01-24T12:19:20.403Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习方法=模型+策略+算法">
-<meta name="twitter:description" content="机器学习方法都是由模型、策略、算法构成的，可简单表示为1方法 = 模型 + 策略 + 算法
-模型机器学习首先考虑的是要学习什么样的模型，比如说：在监督学习过程中，模型就是所要学习的 条件概率分布 或 决策函数。即：1模型 = 条件概率分布 | 决策函数
-而模型的假设空间，则是包含了所有 分布 或 函数 的集合。通常假设空间里的 分布 或 函数 有无穷多个。  
-策略策略，就是按照什么方法去选择最优">
+<meta name="twitter:title" content="什么是范数？">
+<meta name="twitter:description" content="基本概念范数，是具有“长度”概念的函数。比如，二维欧几里德空间里面，用一个箭头表示矢量，对应范数就是这矢量的长度。一维空间上它是绝对值，二维空间上它是模。是不是没明白？ 要想搞懂这个，需要一些其他的知识。
+补给知识1. 函数与几何的关系函数是几何的抽象概括，几何是函数的具体描述。但是，当函数超过三维时，就难以获得较好的想象。于是需要引入映射的概念。
+2. 映射与矩阵的关系之前讲到三维以上几何就不好">
   
     <link rel="alternative" href="/atom.xml" title="Razor" type="application/atom+xml">
   
@@ -166,20 +163,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-机器学习方法-模型-策略-算法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-什么是范数？" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      机器学习方法=模型+策略+算法
+      什么是范数？
     </h1>
   
 
         
-        <a href="/2017/01/23/机器学习方法-模型-策略-算法/" class="archive-article-date">
-  	<time datetime="2017-01-23T03:56:34.000Z" itemprop="datePublished">2017-01-23</time>
+        <a href="/2017/01/24/什么是范数？/" class="archive-article-date">
+  	<time datetime="2017-01-24T02:49:11.000Z" itemprop="datePublished">2017-01-24</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -196,27 +193,19 @@
 
 <div id="toc" class="toc-article">
   <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#模型"><span class="toc-text">模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#策略"><span class="toc-text">策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法"><span class="toc-text">算法</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#补给知识"><span class="toc-text">补给知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-函数与几何的关系"><span class="toc-text">1. 函数与几何的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-映射与矩阵的关系"><span class="toc-text">2. 映射与矩阵的关系</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#几种范数的意义"><span class="toc-text">几种范数的意义</span></a></li></ol>
 </div>
 
 
 
-    <p>机器学习方法都是由模型、策略、算法构成的，可简单表示为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">方法 = 模型 + 策略 + 算法</div></pre></td></tr></table></figure></p>
-<h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1><p>机器学习首先考虑的是要学习什么样的模型，比如说：在监督学习过程中，模型就是所要学习的 <em>条件概率分布</em> 或 <em>决策函数</em>。即：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">模型 = 条件概率分布 | 决策函数</div></pre></td></tr></table></figure></p>
-<p>而模型的<strong>假设空间</strong>，则是包含了所有 分布 或 函数 的集合。通常假设空间里的 分布 或 函数 有无穷多个。  </p>
-<h1 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h1><p>策略，就是按照什么方法去选择最优的模型。<br>比如说监督学习里的 <em>经验风险最小化策略</em>、<em>结构风险最小化策略</em>。<br>哈？这两个又是什么鬼？<br>要解释这个首先得了解三个概念：<strong>损失函数（Loss Function）</strong>，<strong>期望损失（Expected Loss）</strong>，<strong>经验损失（Empirical Loss）</strong>。<br><code>损失函数：</code>与损失函数相关的有3个值：输入值X，输出值f（X），真实值Y。通过度量f（X）与Y之间的误差，来评判模型的好坏。误差越小，模型越好。<br>机器学习常用的损失函数有以下几种：  </p>
-<ol>
-<li>0-1损失函数</li>
-<li>平方损失函数</li>
-<li>绝对损失函数</li>
-<li>对数损失函数（对数似然损失函数）  </li>
-</ol>
-<p><code>期望损失：</code> R = L（X，f（X））<em>  P（X, f（X））<br>期望损失是模型f（X）关于联合分布P（X,Y）的平均意义下的损失。<em>*而我们的目标就是找到一个期望损失最小的模型。</em></em>但是，P（X,Y）是未知的，因此从这个方程去求期望损失是不行的。  </p>
-<p><code>经验损失：</code> R = 1/N * sum（L（X，f（X））<br>经验损失是训练样本集的平均损失。  </p>
-<p>之前说到P（X,Y）未知因此期望损失不可求，但是，根据<a href="https://zh.wikipedia.org/wiki/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B" target="_blank" rel="external">大数定律</a>， 当样本容量N趋于无穷大时，经验损失趋于期望损失。这就有希望了？！<br>但但是，<strong>现实中的训练样本数量很有限</strong>， 甚至很小，所以用经验损失来估计期望损失往往很不理想。  </p>
-<p><strong>怎么办？</strong><br>这时候就是我们的<strong>策略</strong>登场的时候： 比如 <em>经验风险最小化策略</em>、<em>结构风险最小化策略</em>。</p>
-<p><code>经验风险最小化策略：</code>简单粗暴的认为经验损失最小的模型就是最好的。当样本足够多的时候，效果OK，但是样本不足即容易过拟合（Over fitting）。<br><code>结构风险最小化策略：</code>认为结构风险最小的模型最好。结构风险的函数是在经验风险的基础上多加里正则化项或罚项λJ（f），J（f）表示模型的复杂度，是假设空间上的泛函。<br>到这里可以看出，我们以监督学习为例，到这里监督学习的问题已经变为里 经验 或 结构 风险函数 的优化问题。</p>
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p>算法，就是用什么计算方法求解最优模型，怎么在找到最优解的同时，保证求解过程的高效，是算法部分要解决的问题。</p>
+    <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>范数，是具有“长度”概念的函数。比如，二维欧几里德空间里面，用一个箭头表示矢量，对应范数就是这矢量的长度。一维空间上它是绝对值，二维空间上它是模。<br>是不是没明白？ 要想搞懂这个，需要一些其他的知识。</p>
+<h1 id="补给知识"><a href="#补给知识" class="headerlink" title="补给知识"></a>补给知识</h1><h2 id="1-函数与几何的关系"><a href="#1-函数与几何的关系" class="headerlink" title="1. 函数与几何的关系"></a>1. 函数与几何的关系</h2><p>函数是几何的抽象概括，几何是函数的具体描述。但是，当函数超过三维时，就难以获得较好的想象。于是需要引入映射的概念。</p>
+<h2 id="2-映射与矩阵的关系"><a href="#2-映射与矩阵的关系" class="headerlink" title="2. 映射与矩阵的关系"></a>2. 映射与矩阵的关系</h2><p>之前讲到三维以上几何就不好想象了，但是我们仍要对三维以上的事物做比较、做分析。怎么办？<strong>映射。</strong>通过映射，<strong>给空间内的任意一个元素配一个实数，实数就可以拿来比较了</strong>。<br>为了更好的表达映射，我们通过<strong>矩阵</strong>来表示映射关系。<br>因为这个元素，可以是一个数，也可以是一个集合，也可以是一个向量，所要用矩阵来表达更为方便。<br>到这里，就可以给范数一个更具象的描述：<strong>范数就是这个集合 或 矩阵 的大小，范数大，意味着矩阵就大。其他情况也可以类推。</strong></p>
+<h1 id="几种范数的意义"><a href="#几种范数的意义" class="headerlink" title="几种范数的意义"></a>几种范数的意义</h1><ul>
+<li>L0范数：向量中非零元素的个数。机器学习中与稀疏编码相关。</li>
+<li>L1范数：绝对值之和。</li>
+<li>L2范数：通常意义上的模。</li>
+</ul>
 
   
 
@@ -229,11 +218,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">范数</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
@@ -245,7 +234,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/机器学习/" class="article-tag-list-link color5">机器学习</a>
+        			<a href="/categories/数学之美/" class="article-tag-list-link color5">数学之美</a>
         		</li>
       		
 		</ul>
@@ -300,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/2017/01/23/机器学习方法-模型-策略-算法/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/2017/01/24/什么是范数？/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,18 +303,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/01/24/什么是范数？/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          什么是范数？
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/01/22/python中if __name__ == '__main__': 的作用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python中&quot;if __name__ == &#39;__main__&#39;:&quot; 的作用</div>
+    <a href="/2017/01/23/机器学习方法-模型-策略-算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习方法=模型+策略+算法</div>
       <i class="icon-circle-right"></i>
     </a>
   
