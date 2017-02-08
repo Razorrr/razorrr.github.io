@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xrazor.net">
-  <title>信息熵、信息增益与Gini指数 | Razor</title>
+  <title>从造物者的角度理解python类中init的意义 | Razor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在机器学习决策树中，引入里熵、信息增益、信息增益比和Gini指数，作为特征选择的准则。不同的算法对应了不同的特征选择准则，如ID3选用信息增益的大小作为特征选择判定的标准，C4.5则选用信息增益比为选择标准，CART则用Gini指数作为选择标准。那么，所引入的这几个指标的内涵意义是什么呢？本文将作一个简单的梳理。
-信息熵在信息论里面，熵被用来衡量一个随机变量出现的期望值，对不确定性的测量，是描述一">
+  <meta name="description" content="怎么理解python在创建一个class时，init 的意义呢？我要说的是一个比喻。可以把程序员比喻为造物者，是一个神，有一天他想创造一个东西， 叫人类，所以：1class human
+他想啊想，觉得人类应该有鼻子眼睛有手有腿，所以：1234567class human    def __init(self,nose,eye,hand,leg):        self.nose = nose">
 <meta property="og:type" content="article">
-<meta property="og:title" content="信息熵、信息增益与Gini指数">
-<meta property="og:url" content="http://xrazor.net/2017/02/03/信息熵、信息增益与Gini系数/index.html">
+<meta property="og:title" content="从造物者的角度理解python类中init的意义">
+<meta property="og:url" content="http://xrazor.net/2017/02/08/从造物者的角度理解python类中init的意义/index.html">
 <meta property="og:site_name" content="Razor">
-<meta property="og:description" content="在机器学习决策树中，引入里熵、信息增益、信息增益比和Gini指数，作为特征选择的准则。不同的算法对应了不同的特征选择准则，如ID3选用信息增益的大小作为特征选择判定的标准，C4.5则选用信息增益比为选择标准，CART则用Gini指数作为选择标准。那么，所引入的这几个指标的内涵意义是什么呢？本文将作一个简单的梳理。
-信息熵在信息论里面，熵被用来衡量一个随机变量出现的期望值，对不确定性的测量，是描述一">
-<meta property="og:updated_time" content="2017-02-04T07:23:09.681Z">
+<meta property="og:description" content="怎么理解python在创建一个class时，init 的意义呢？我要说的是一个比喻。可以把程序员比喻为造物者，是一个神，有一天他想创造一个东西， 叫人类，所以：1class human
+他想啊想，觉得人类应该有鼻子眼睛有手有腿，所以：1234567class human    def __init(self,nose,eye,hand,leg):        self.nose = nose">
+<meta property="og:updated_time" content="2017-02-08T08:07:18.381Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="信息熵、信息增益与Gini指数">
-<meta name="twitter:description" content="在机器学习决策树中，引入里熵、信息增益、信息增益比和Gini指数，作为特征选择的准则。不同的算法对应了不同的特征选择准则，如ID3选用信息增益的大小作为特征选择判定的标准，C4.5则选用信息增益比为选择标准，CART则用Gini指数作为选择标准。那么，所引入的这几个指标的内涵意义是什么呢？本文将作一个简单的梳理。
-信息熵在信息论里面，熵被用来衡量一个随机变量出现的期望值，对不确定性的测量，是描述一">
+<meta name="twitter:title" content="从造物者的角度理解python类中init的意义">
+<meta name="twitter:description" content="怎么理解python在创建一个class时，init 的意义呢？我要说的是一个比喻。可以把程序员比喻为造物者，是一个神，有一天他想创造一个东西， 叫人类，所以：1class human
+他想啊想，觉得人类应该有鼻子眼睛有手有腿，所以：1234567class human    def __init(self,nose,eye,hand,leg):        self.nose = nose">
   
     <link rel="alternative" href="/atom.xml" title="Razor" type="application/atom+xml">
   
@@ -160,20 +160,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-信息熵、信息增益与Gini系数" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-从造物者的角度理解python类中init的意义" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      信息熵、信息增益与Gini指数
+      从造物者的角度理解python类中init的意义
     </h1>
   
 
         
-        <a href="/2017/02/03/信息熵、信息增益与Gini系数/" class="archive-article-date">
-  	<time datetime="2017-02-03T07:51:28.000Z" itemprop="datePublished">2017-02-03</time>
+        <a href="/2017/02/08/从造物者的角度理解python类中init的意义/" class="archive-article-date">
+  	<time datetime="2017-02-08T07:35:19.000Z" itemprop="datePublished">2017-02-08</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -190,15 +190,14 @@
 
 <div id="toc" class="toc-article">
   <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#信息熵"><span class="toc-text">信息熵</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息增益"><span class="toc-text">信息增益</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Gini指数"><span class="toc-text">Gini指数</span></a></li></ol>
+
 </div>
 
 
 
-    <p>在机器学习决策树中，引入里熵、信息增益、信息增益比和Gini指数，作为特征选择的准则。不同的算法对应了不同的特征选择准则，如ID3选用信息增益的大小作为特征选择判定的标准，C4.5则选用信息增益比为选择标准，CART则用Gini指数作为选择标准。那么，所引入的这几个指标的内涵意义是什么呢？本文将作一个简单的梳理。</p>
-<h1 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h1><p>在信息论里面，熵被用来衡量一个随机变量出现的期望值，<strong>对不确定性的测量</strong>，是描述一个系统所需的最低存储单元。在信息世界，熵越高，<strong>所需</strong>传递的信息越丰富，熵越低，则意味着<strong>所需</strong>传输的信息越少。而在热力学里，熵越高，表示混乱度越高。<br>这三个解释乍一看毫无关联，实际上确实可以相互印证的。以抛硬币为例，自然条件下结果为正面或反面的概率均为50%， 此时结果的不确定性最高， 越混乱，而我们要描述这个结果所需的文字（暂且用文字的个数代表存储单元）越多，比如你会这么描述“结果可能是正面，也可能是反面”（加逗号14个字）；而当我们<strong>假定</strong>正面出现的概率为100%时，信息熵为0，不混乱很清晰，而此时我们描述这个结果所需的存储单元是很少的，比如说“是正面”（3个字）就能描述清楚。  </p>
-<h1 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h1><p>有了上面的概念，我们就可以结合ID3算法来看看信息增益是什么东西。<br>在ID3中，使用信息增益作为特征选择的准则，用H（D）表示数据集的<strong>经验熵</strong>，用H（D|A)表示在A特征下数据集D的<strong>经验条件熵</strong>，则信息增益g（D，A）= H(D) - H(D|A), 表示 有A 和 没A ，整个系统的不确定性变化了多少。这里要牢记， 熵高，是说明不确定很大，如果H（D）很大，而 H（D|A)很小，则g（D,A）会趋大， <strong>说明特征A 的存在，大大降低了系统的不确定性， 因此它是一个关键的特征</strong>。</p>
-<h1 id="Gini指数"><a href="#Gini指数" class="headerlink" title="Gini指数"></a>Gini指数</h1><p>Gini指数是CART算法中生成分类树时用来选择特征的一个指标。</p>
+    <p>怎么理解python在创建一个class时，<strong>init</strong> 的意义呢？<br>我要说的是一个比喻。<br>可以把程序员比喻为造物者，是一个神，有一天他想创造一个东西， 叫人类，所以：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class human</div></pre></td></tr></table></figure></p>
+<p>他想啊想，觉得人类应该有鼻子眼睛有手有腿，所以：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class human</div><div class="line">    def __init(self,nose,eye,hand,leg):</div><div class="line"></div><div class="line">        self.nose = nose</div><div class="line">        self.eye = eye</div><div class="line">        self.hand = hand</div><div class="line">        self.leg =leg</div></pre></td></tr></table></figure></p>
+<p>这样人类的这些<strong>类属性</strong>就定下来了。<br>到这里还是神心中的一些想法，还没有真正造人。等到了星期一这一天的黄道吉日，神决定把人造出来（实例化）。<br>他说，要有人…<br>于是出来了一堆人，这些人的共同特征就是有鼻子眼睛有手有腿，但是他们的鼻子眼睛手脚都各不相同。<br>所以到这里我们就可以稍微理解一些了，这个init是干什么的？<strong>它就是设置这一类里面所有的参数的。</strong><br>再想想 键-值 的关系？ ini做的就是创建 键 ，而被其他方法调用就是在 写这个键的值。<br>OVER</p>
 
   
 
@@ -211,7 +210,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -223,7 +222,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/机器学习/" class="article-tag-list-link color5">机器学习</a>
+        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -278,7 +277,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/2017/02/03/信息熵、信息增益与Gini系数/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/2017/02/08/从造物者的角度理解python类中init的意义/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,18 +291,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/08/Dataframe常用操作/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Dataframe常用操作
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/02/02/P问题、NP问题与NPC问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">P问题、NP问题与NPC问题</div>
+    <a href="/2017/02/08/Dataframe常用操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Dataframe常用操作</div>
       <i class="icon-circle-right"></i>
     </a>
   
