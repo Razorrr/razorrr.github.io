@@ -6,21 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xrazor.net">
-  <title>从造物者的角度理解python类中init的意义 | Razor</title>
+  <title>Tag: mapreduce | Razor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="怎么理解python在创建一个class时，init 的意义呢？我要说的是一个比喻。可以把程序员比喻为造物者，是一个神，有一天他想创造一个东西， 叫人类，所以：1class human
-他想啊想，觉得人类应该有鼻子眼睛有手有腿，所以：1234567class human    def __init(self,nose,eye,hand,leg):        self.nose = nose">
-<meta property="og:type" content="article">
-<meta property="og:title" content="从造物者的角度理解python类中init的意义">
-<meta property="og:url" content="http://xrazor.net/2017/02/08/从造物者的角度理解python类中init的意义/index.html">
+  <meta name="description" content="奥卡姆小剃刀的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Razor">
+<meta property="og:url" content="http://xrazor.net/tags/mapreduce/index.html">
 <meta property="og:site_name" content="Razor">
-<meta property="og:description" content="怎么理解python在创建一个class时，init 的意义呢？我要说的是一个比喻。可以把程序员比喻为造物者，是一个神，有一天他想创造一个东西， 叫人类，所以：1class human
-他想啊想，觉得人类应该有鼻子眼睛有手有腿，所以：1234567class human    def __init(self,nose,eye,hand,leg):        self.nose = nose">
-<meta property="og:updated_time" content="2017-02-08T08:08:52.841Z">
+<meta property="og:description" content="奥卡姆小剃刀的博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从造物者的角度理解python类中init的意义">
-<meta name="twitter:description" content="怎么理解python在创建一个class时，init 的意义呢？我要说的是一个比喻。可以把程序员比喻为造物者，是一个神，有一天他想创造一个东西， 叫人类，所以：1class human
-他想啊想，觉得人类应该有鼻子眼睛有手有腿，所以：1234567class human    def __init(self,nose,eye,hand,leg):        self.nose = nose">
+<meta name="twitter:title" content="Razor">
+<meta name="twitter:description" content="奥卡姆小剃刀的博客">
   
     <link rel="alternative" href="/atom.xml" title="Razor" type="application/atom+xml">
   
@@ -160,164 +156,84 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-从造物者的角度理解python类中init的意义" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      从造物者的角度理解python类中init的意义
-    </h1>
-  
-
-        
-        <a href="/2017/02/08/从造物者的角度理解python类中init的意义/" class="archive-article-date">
-  	<time datetime="2017-02-08T07:35:19.000Z" itemprop="datePublished">2017-02-08</time>
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/02/09/Mapreduce是小学生都会玩的小把戏/" class="archive-article-date">
+  	<time datetime="2017-02-09T06:28:29.000Z" itemprop="datePublished">2017-02-09</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
 </a>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/02/09/Mapreduce是小学生都会玩的小把戏/">MapReduce是小学生都会玩的小把戏</a>
+    </h1>
   
 
-
-<div id="toc" class="toc-article">
-  <strong class="toc-title">文章目录</strong>
-
-</div>
-
-
-
-    <p>怎么理解python在创建一个class时，<strong>init</strong> 的意义呢？<br>我要说的是一个比喻。<br>可以把程序员比喻为造物者，是一个神，有一天他想创造一个东西， 叫人类，所以：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class human</div></pre></td></tr></table></figure></p>
-<p>他想啊想，觉得人类应该有鼻子眼睛有手有腿，所以：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class human</div><div class="line">    def __init(self,nose,eye,hand,leg):</div><div class="line"></div><div class="line">        self.nose = nose</div><div class="line">        self.eye = eye</div><div class="line">        self.hand = hand</div><div class="line">        self.leg =leg</div></pre></td></tr></table></figure></p>
-<p>这样人类的这些<strong>类属性</strong>就定下来了。<br>到这里还是神心中的一些想法，还没有真正造人。等到了星期一这一天的黄道吉日，神决定把人造出来（实例化）。<br>他说，要有人…<br>于是出来了一堆人，这些人的共同特征就是有鼻子眼睛有手有腿，但是他们的鼻子眼睛手脚都各不相同。<br>所以到这里我们就可以稍微理解一些了，这个init是干什么的？<strong>它就是设置这一类里面所有的参数的。</strong><br>再想想 键-值 的关系？ init做的就是创建 键 ，而被其他方法调用就是在 写这个键的值。<br>OVER</p>
-
-  
-
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mapreduce</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
+        			<a href="/categories/hadoop/" class="article-tag-list-link color2">hadoop</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/2017/02/08/从造物者的角度理解python类中init的意义/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/02/09/在archlinux上安装mongodb/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          在archlinux上安装mongodb
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/02/08/Dataframe常用操作/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Dataframe常用操作</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-    <div class="duoshuo"></div>
+    </div></section>
   
 
-
+    
 
 
           </div>
@@ -344,9 +260,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
