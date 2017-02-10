@@ -158,6 +158,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-scrapy中对unicode的处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/15/scrapy中对unicode的处理/">scrapy中对unicode的处理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/15/scrapy中对unicode的处理/" class="archive-article-date">
+  	<time datetime="2017-01-15T03:37:08.000Z" itemprop="datePublished">2017-01-15</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+  
+
+
+<div id="toc" class="toc-article">
+  <strong class="toc-title">文章目录</strong>
+
+</div>
+
+
+
+    <p>用scrapy爬虫框架爬取的数据，在调用extract()后， 默认数据返回的编码格式是unicode， 比如中文就会显示为\xe7\x94等等。<br>为了使之在存储中显示为中文，可在pipeline.py中处理如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class SeekjobPipeline(object):</div><div class="line"></div><div class="line">    def __init__(self):</div><div class="line">        self.file = codecs.open(&apos;../results.json&apos;, &apos;wb&apos;, encoding=&apos;utf-8&apos;)</div><div class="line">    def process_item(self, item, spider):</div><div class="line">        line = json.dumps(dict(item)) + &apos;\n&apos;</div><div class="line">        self.file.write(line.decode(&quot;unicode_escape&quot;))</div><div class="line">        return item</div></pre></td></tr></table></figure>
+<p>其中的process_item方法是必须调用的用来处理item，并且返回值必须为Item类的对象，或者是抛出DropItem异常。并且上述方法将得到的item实现解码，以便正常显示中文，最终保存到创建的results.json文件中。<br>而json.dumps是用来将Python中（字典，列表等）变量格式化成json字符串输出。</p>
+<blockquote>
+<p>转中文的关键点是这一句:’line.decode(“unicode_escape”)’  </p>
+</blockquote>
+<p><strong>注意：在编写完pipeline后，为了能够启动它，必须将其加入到ITEM_PIPLINES配置中，即在settings.py中加入下面一句：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ITEM_PIPELINES = &#123;</div><div class="line">    &apos;seekjob.pipelines.SeekjobPipeline&apos;: 300,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+  
+
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">scrapy</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/15/scrapy中对unicode的处理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-用urllib-quote进行URL编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -655,6 +752,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

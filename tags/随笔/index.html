@@ -6,30 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xrazor.net">
-  <title>在archlinux上安装mongodb | Razor</title>
+  <title>Tag: 随笔 | Razor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用pacman命令安装mongodb1$ sudo pacman -S mongodb
-用whereis命令找到mongo的执行文件夹1$ whereis mongo
-一般是/usr/bin
-创建一个数据存储文件夹选择一个路径，比如/data/db，使用mkdir命令创建：1$ sudo mkdir /data/db
-顺便把文件夹的权限改为可读写，否则数据文件无法写入，mongodb也没办法顺利启">
-<meta property="og:type" content="article">
-<meta property="og:title" content="在archlinux上安装mongodb">
-<meta property="og:url" content="http://xrazor.net/2017/02/09/在archlinux上安装mongodb/index.html">
+  <meta name="description" content="奥卡姆小剃刀的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Razor">
+<meta property="og:url" content="http://xrazor.net/tags/随笔/index.html">
 <meta property="og:site_name" content="Razor">
-<meta property="og:description" content="用pacman命令安装mongodb1$ sudo pacman -S mongodb
-用whereis命令找到mongo的执行文件夹1$ whereis mongo
-一般是/usr/bin
-创建一个数据存储文件夹选择一个路径，比如/data/db，使用mkdir命令创建：1$ sudo mkdir /data/db
-顺便把文件夹的权限改为可读写，否则数据文件无法写入，mongodb也没办法顺利启">
-<meta property="og:updated_time" content="2017-02-09T03:17:51.617Z">
+<meta property="og:description" content="奥卡姆小剃刀的博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在archlinux上安装mongodb">
-<meta name="twitter:description" content="用pacman命令安装mongodb1$ sudo pacman -S mongodb
-用whereis命令找到mongo的执行文件夹1$ whereis mongo
-一般是/usr/bin
-创建一个数据存储文件夹选择一个路径，比如/data/db，使用mkdir命令创建：1$ sudo mkdir /data/db
-顺便把文件夹的权限改为可读写，否则数据文件无法写入，mongodb也没办法顺利启">
+<meta name="twitter:title" content="Razor">
+<meta name="twitter:description" content="奥卡姆小剃刀的博客">
   
     <link rel="alternative" href="/atom.xml" title="Razor" type="application/atom+xml">
   
@@ -169,184 +156,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-在archlinux上安装mongodb" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      在archlinux上安装mongodb
-    </h1>
-  
-
-        
-        <a href="/2017/02/09/在archlinux上安装mongodb/" class="archive-article-date">
-  	<time datetime="2017-02-09T02:51:40.000Z" itemprop="datePublished">2017-02-09</time>
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/02/11/Live-a-boxer-life/" class="archive-article-date">
+  	<time datetime="2017-02-10T21:41:07.000Z" itemprop="datePublished">2017-02-11</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
 </a>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/02/11/Live-a-boxer-life/">Live-a-boxer-life</a>
+    </h1>
   
 
-
-<div id="toc" class="toc-article">
-  <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#用pacman命令安装mongodb"><span class="toc-text">用pacman命令安装mongodb</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用whereis命令找到mongo的执行文件夹"><span class="toc-text">用whereis命令找到mongo的执行文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建一个数据存储文件夹"><span class="toc-text">创建一个数据存储文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建config文件指定mongodb的数据写入路径"><span class="toc-text">创建config文件指定mongodb的数据写入路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#带参数启动mongod"><span class="toc-text">带参数启动mongod</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动mongo"><span class="toc-text">启动mongo</span></a></li></ol>
-</div>
-
-
-
-    <h4 id="用pacman命令安装mongodb"><a href="#用pacman命令安装mongodb" class="headerlink" title="用pacman命令安装mongodb"></a>用pacman命令安装mongodb</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo pacman -S mongodb</div></pre></td></tr></table></figure>
-<h4 id="用whereis命令找到mongo的执行文件夹"><a href="#用whereis命令找到mongo的执行文件夹" class="headerlink" title="用whereis命令找到mongo的执行文件夹"></a>用whereis命令找到mongo的执行文件夹</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ whereis mongo</div></pre></td></tr></table></figure>
-<p>一般是<code>/usr/bin</code></p>
-<h4 id="创建一个数据存储文件夹"><a href="#创建一个数据存储文件夹" class="headerlink" title="创建一个数据存储文件夹"></a>创建一个数据存储文件夹</h4><p>选择一个路径，比如/data/db，使用mkdir命令创建：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo mkdir /data/db</div></pre></td></tr></table></figure></p>
-<p>顺便把文件夹的权限改为可读写，否则数据文件无法写入，mongodb也没办法顺利启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo chmod 777 /data/db</div></pre></td></tr></table></figure></p>
-<p>顺带提一下，几种文件权限的数字代码：</p>
-<pre><code>-rw——- (600) 只有所有者才有读和写的权限  
--rw-r–r– (644) 只有所有者才有读和写的权限，组群和其他人只有读的权限
--rwx—— (700) 只有所有者才有读，写，执行的权限
--rwxr-xr-x (755) 只有所有者才有读，写，执行的权限，组群和其他人只有读和执行的权限
--rwx–x–x (711) 只有所有者才有读，写，执行的权限，组群和其他人只有执行的权限
--rw-rw-rw- (666) 每个人都有读写的权限
--rwxrwxrwx (777) 每个人都有读写和执行的权限
-</code></pre><h4 id="创建config文件指定mongodb的数据写入路径"><a href="#创建config文件指定mongodb的数据写入路径" class="headerlink" title="创建config文件指定mongodb的数据写入路径"></a>创建config文件指定mongodb的数据写入路径</h4><p>cd到/usr/bin里面（当然你也可以换另一个路径）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano mongodb.config</div></pre></td></tr></table></figure></p>
-<p>然后在文件中写一行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dbpath=/data/db</div></pre></td></tr></table></figure></p>
-<p>作用就是在启动时告诉mongod说我们的数据是要存在/data/db这个地方。<br>还可以直接用命令行指定（如果不担心自己忘记路径的话）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongod --dbpath &quot;/data/db&quot;</div></pre></td></tr></table></figure></p>
-<h4 id="带参数启动mongod"><a href="#带参数启动mongod" class="headerlink" title="带参数启动mongod"></a>带参数启动mongod</h4><p>cd到/usr/bin里面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongod --config mongodb.config</div></pre></td></tr></table></figure></p>
-<p>这样就能启动mongod了，需要注意的是注意区分mongod和mongo，<strong>mongod是service processing，而mongo是client shell</strong>。<br>当你看到这一句时说明已经成功启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">2017-02-09T11:09:45.613+0800 I NETWORK  [thread1] waiting for connections on port 27017</div></pre></td></tr></table></figure></p>
-<h4 id="启动mongo"><a href="#启动mongo" class="headerlink" title="启动mongo"></a>启动mongo</h4><p>这时启动另一个命令行终端，然后启动mongo，OK了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongo</div></pre></td></tr></table></figure></p>
-
-  
-
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">archlinux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/2017/02/09/在archlinux上安装mongodb/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/02/09/Mapreduce是小学生都会玩的小把戏/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MapReduce是小学生都会玩的小把戏
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/02/08/从造物者的角度理解python类中init的意义/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">从造物者的角度理解python类中init的意义</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-    <div class="duoshuo"></div>
+    </div></section>
   
 
-
+    
 
 
           </div>
@@ -373,9 +252,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
