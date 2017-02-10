@@ -6,21 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xrazor.net">
-  <title>python中&quot;if __name__ == &#39;__main__&#39;:&quot; 的作用 | Razor</title>
+  <title>计算机字符编码手札：ASCii、Unicode和UTF-8 | Razor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先给出一个代码的样例，譬如你有一个文档叫test.py：  
-1234567def test111():      print &amp;quot;正在执行111号模块&amp;quot;      def test222():      print &amp;quot;正在执行222号模块&amp;quot;  if __name__ == &amp;apos;__main__&amp;apos;:     test111()    test">
+  <meta name="description" content="基础知识首先，计算机编码的结构为:  
+二进制位（Bit）——二进制字符串——字节（8 Bit）
+众所周知，二进制是计算机信息表达的基础。每个Bit有0和1两种状态，8个二进制位就可以有256种状态，称为1个字节。
+ASCii编码有了上面的设定，人们就想了——怎么把日常的信息转化位计算机的执行语言呢？即建立计算机语言和人类语言的桥梁。于是ASCii出现了，它规定了128个二进制字符串，使之与英文字">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python中"if __name__ == '__main__':" 的作用">
-<meta property="og:url" content="http://xrazor.net/2017/01/22/python中if __name__ == '__main__': 的作用/index.html">
+<meta property="og:title" content="计算机字符编码手札：ASCii、Unicode和UTF-8">
+<meta property="og:url" content="http://xrazor.net/2017/02/11/计算机字符编码手札：ASCii、Unicode和UTF-8/index.html">
 <meta property="og:site_name" content="Razor">
-<meta property="og:description" content="先给出一个代码的样例，譬如你有一个文档叫test.py：  
-1234567def test111():      print &amp;quot;正在执行111号模块&amp;quot;      def test222():      print &amp;quot;正在执行222号模块&amp;quot;  if __name__ == &amp;apos;__main__&amp;apos;:     test111()    test">
-<meta property="og:updated_time" content="2017-01-22T03:29:09.605Z">
+<meta property="og:description" content="基础知识首先，计算机编码的结构为:  
+二进制位（Bit）——二进制字符串——字节（8 Bit）
+众所周知，二进制是计算机信息表达的基础。每个Bit有0和1两种状态，8个二进制位就可以有256种状态，称为1个字节。
+ASCii编码有了上面的设定，人们就想了——怎么把日常的信息转化位计算机的执行语言呢？即建立计算机语言和人类语言的桥梁。于是ASCii出现了，它规定了128个二进制字符串，使之与英文字">
+<meta property="og:updated_time" content="2017-02-10T23:26:44.161Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python中"if __name__ == '__main__':" 的作用">
-<meta name="twitter:description" content="先给出一个代码的样例，譬如你有一个文档叫test.py：  
-1234567def test111():      print &amp;quot;正在执行111号模块&amp;quot;      def test222():      print &amp;quot;正在执行222号模块&amp;quot;  if __name__ == &amp;apos;__main__&amp;apos;:     test111()    test">
+<meta name="twitter:title" content="计算机字符编码手札：ASCii、Unicode和UTF-8">
+<meta name="twitter:description" content="基础知识首先，计算机编码的结构为:  
+二进制位（Bit）——二进制字符串——字节（8 Bit）
+众所周知，二进制是计算机信息表达的基础。每个Bit有0和1两种状态，8个二进制位就可以有256种状态，称为1个字节。
+ASCii编码有了上面的设定，人们就想了——怎么把日常的信息转化位计算机的执行语言呢？即建立计算机语言和人类语言的桥梁。于是ASCii出现了，它规定了128个二进制字符串，使之与英文字">
   
     <link rel="alternative" href="/atom.xml" title="Razor" type="application/atom+xml">
   
@@ -160,20 +166,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python中if __name__ == &#39;__main__&#39;: 的作用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-计算机字符编码手札：ASCii、Unicode和UTF-8" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      python中&quot;if __name__ == &#39;__main__&#39;:&quot; 的作用
+      计算机字符编码手札：ASCii、Unicode和UTF-8
     </h1>
   
 
         
-        <a href="/2017/01/22/python中if __name__ == '__main__': 的作用/" class="archive-article-date">
-  	<time datetime="2017-01-22T03:14:16.000Z" itemprop="datePublished">2017-01-22</time>
+        <a href="/2017/02/11/计算机字符编码手札：ASCii、Unicode和UTF-8/" class="archive-article-date">
+  	<time datetime="2017-02-10T22:37:53.000Z" itemprop="datePublished">2017-02-11</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -188,19 +194,22 @@
   
 
 
+<div id="toc" class="toc-article">
+  <strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础知识"><span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ASCii编码"><span class="toc-text">ASCii编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unicode"><span class="toc-text">Unicode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UTF-8"><span class="toc-text">UTF-8</span></a></li></ol>
+</div>
 
 
-    <p>先给出一个代码的样例，譬如你有一个文档叫test.py：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">def test111():  </div><div class="line">    print &quot;正在执行111号模块&quot;      </div><div class="line">def test222():  </div><div class="line">    print &quot;正在执行222号模块&quot;  </div><div class="line">if __name__ == &apos;__main__&apos;: </div><div class="line">    test111()</div><div class="line">    test222()</div></pre></td></tr></table></figure>
-<p>因为<code>&quot;__name__&quot;</code>是python的一个内置函数，当程序完整执行时，python会把 <code>__name__ = __main__</code>； <strong>当程序部分执行时（即调用其中的一个def），<code>__name__</code>= 模块名字。</strong>  </p>
-<p>两种不同的情况执行结果如下：  </p>
-<ol>
-<li><p>当直接执行test.py 的时候，<code>__name__ = __main__</code>，此时输出结果为：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">正在执行111号模块</div><div class="line">正在执行222号模块</div></pre></td></tr></table></figure>
-</li>
-<li><p>当只调用test111（）时，<code>__name__ = test111（）</code>，此时输出结果为：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">正在执行111号模块</div></pre></td></tr></table></figure></li>
-</ol>
+
+    <h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>首先，计算机编码的结构为:  </p>
+<pre><code>二进制位（Bit）——二进制字符串——字节（8 Bit）
+</code></pre><p>众所周知，二进制是计算机信息表达的基础。每个Bit有0和1两种状态，8个二进制位就可以有256种状态，称为1个字节。</p>
+<h3 id="ASCii编码"><a href="#ASCii编码" class="headerlink" title="ASCii编码"></a>ASCii编码</h3><p>有了上面的设定，人们就想了——怎么把日常的信息转化位计算机的执行语言呢？<strong>即建立计算机语言和人类语言的桥梁</strong>。<br>于是ASCii出现了，它规定了128个二进制字符串，使之与英文字母等常用字符一一对应。比如大写字母A对应的二进制字符串是01000001。这128个符号（包括32个不能打印出来的控制符号），只占用了一个字节的后面7位，最前面的1位统一规定为0。</p>
+<h3 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h3><p>慢慢的，不光是英文需要与计算机语言桥接，法语日语中文俄文也要啊！所以你搞一个编码我搞一个编码，纷纷把自己的语言和计算机语言联系起来。结果悲剧了，<strong>不同的编码方式导致了解码的时候得到的信息不一致</strong>。法文编码的用日文的解码方式得出来一堆乱码。怎么办？<br><strong>为解决这个问题，Unicode应运而生。</strong>它包含了世界上所有文字符号，每个符号都有一个独一无二的编码。这样就不会出现乱码的问题了。它是类似这样的：&amp;#x0041（表示大写字母A）。<br>但是，<strong>Unicode并不是没有问题。</strong>它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储。<br>比如，汉字”严”的unicode是十六进制数4E25，转换成二进制数足足有15位（100111000100101），也就是说这个符号的表示至少需要2个字节。表示其他更大的符号，可能需要3个字节或者4个字节，甚至更多。<strong>这样计算机就迷茫了。如何才能区别Unicode和ASCII？计算机怎么知道三个字节表示一个符号，而不是分别表示三个符号呢？</strong>另一个问题是，我们已经知道，英文字母只用一个字节表示就够了，如果Unicode统一规定，每个符号用四个字节表示，那么每个英文字母前都必然有三个字节是0，这对于存储来说是极大的浪费，文本文件的大小会因此大出二三倍，这是无法接受的。  </p>
+<h3 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h3><p><strong>因此大家需要一个通用的Unicode的实现方式，UTF-8就此出现。</strong><br>它的前提思想就是用第一个字节来告诉计算机——“我是多少字符表示的符号“。因此它是一种可变长的编码方式，字符可以用单字符（英文）也可用双字符（中文）甚至更多的字符（更大的符号）来表示。<br>它的规则如下：  </p>
+<p>1）对于单字节的符号，字节的第一位设为0，后面7位为这个符号的unicode码。因此对于英语字母，UTF-8编码和ASCII码是相同的。  </p>
+<p>2）对于n字节的符号（n&gt;1），第一个字节的前n位都设为1，第n+1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的unicode码。<br>下表总结了编码规则，字母x表示可用编码的位。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Unicode符号范围 | UTF-8编码方式</div><div class="line">(十六进制) | （二进制）</div><div class="line">--------------------+---------------------------------------------</div><div class="line">0000 0000-0000 007F | 0xxxxxxx</div><div class="line">0000 0080-0000 07FF | 110xxxxx 10xxxxxx</div><div class="line">0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx</div><div class="line">0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</div></pre></td></tr></table></figure></p>
+<p>跟据上表，解读UTF-8编码非常简单。如果一个字节的第一位是0，则这个字节单独就是一个字符；如果第一位是1，则连续有多少个1，就表示当前字符占用多少个字节。<br>下面，还是以汉字”严”为例，演示如何实现UTF-8编码。<br>已知”严”的unicode是4E25（100111000100101），根据上表，可以发现4E25处在第三行的范围内（0000 0800-0000 FFFF），因此”严”的UTF-8编码需要三个字节，即格式是”1110xxxx 10xxxxxx 10xxxxxx”。然后，从”严”的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补0。这样就得到了，”严”的UTF-8编码是”11100100 10111000 10100101”。</p>
 
   
 
@@ -214,6 +223,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">encoding</a>
         		</li>
       		
 		</ul>
@@ -280,7 +293,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/2017/01/22/python中if __name__ == '__main__': 的作用/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/2017/02/11/计算机字符编码手札：ASCii、Unicode和UTF-8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -294,18 +307,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/01/23/机器学习方法-模型-策略-算法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          机器学习方法=模型+策略+算法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/01/15/scrapy中对unicode的处理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">scrapy中对unicode的处理</div>
+    <a href="/2017/02/11/Live-a-boxer-life/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Live-a-boxer-life</div>
       <i class="icon-circle-right"></i>
     </a>
   
