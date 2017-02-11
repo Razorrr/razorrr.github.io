@@ -188,7 +188,7 @@
 
 <div id="toc" class="toc-article">
   <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础知识"><span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ASCii编码"><span class="toc-text">ASCii编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unicode"><span class="toc-text">Unicode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UTF-8"><span class="toc-text">UTF-8</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础知识"><span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ASCii编码"><span class="toc-text">ASCii编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unicode"><span class="toc-text">Unicode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UTF-8"><span class="toc-text">UTF-8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python中编码的处理"><span class="toc-text">Python中编码的处理</span></a></li></ol>
 </div>
 
 
@@ -202,6 +202,8 @@
 <p>1）对于单字节的符号，字节的第一位设为0，后面7位为这个符号的unicode码。因此对于英语字母，UTF-8编码和ASCII码是相同的。  </p>
 <p>2）对于n字节的符号（n&gt;1），第一个字节的前n位都设为1，第n+1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的unicode码。<br>下表总结了编码规则，字母x表示可用编码的位。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Unicode符号范围 | UTF-8编码方式</div><div class="line">(十六进制) | （二进制）</div><div class="line">--------------------+---------------------------------------------</div><div class="line">0000 0000-0000 007F | 0xxxxxxx</div><div class="line">0000 0080-0000 07FF | 110xxxxx 10xxxxxx</div><div class="line">0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx</div><div class="line">0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</div></pre></td></tr></table></figure></p>
 <p>跟据上表，解读UTF-8编码非常简单。如果一个字节的第一位是0，则这个字节单独就是一个字符；如果第一位是1，则连续有多少个1，就表示当前字符占用多少个字节。<br>下面，还是以汉字”严”为例，演示如何实现UTF-8编码。<br>已知”严”的unicode是4E25（100111000100101），根据上表，可以发现4E25处在第三行的范围内（0000 0800-0000 FFFF），因此”严”的UTF-8编码需要三个字节，即格式是”1110xxxx 10xxxxxx 10xxxxxx”。然后，从”严”的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补0。这样就得到了，”严”的UTF-8编码是”11100100 10111000 10100101”。</p>
+<h3 id="Python中编码的处理"><a href="#Python中编码的处理" class="headerlink" title="Python中编码的处理"></a>Python中编码的处理</h3><p>首先就要弄清础，你想搞的对象是啥？是str？还是Unicode，这样你才能知道是用encode还是decode。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; isinstance(&apos;object&apos;,str)</div><div class="line"></div><div class="line">&gt;&gt;&gt; instance(&apos;object&apos;,unicode)</div></pre></td></tr></table></figure></p>
+<p>不要对str使用encode，不要对unicode使用decode。</p>
 
   
 
