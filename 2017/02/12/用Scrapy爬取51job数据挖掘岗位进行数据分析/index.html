@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://ol8rk79pe.bkt.clouddn.com/location.png">
 <meta property="og:image" content="http://ol8rk79pe.bkt.clouddn.com/salary-degree.png">
 <meta property="og:image" content="http://ol8rk79pe.bkt.clouddn.com/salary-exp.png">
-<meta property="og:updated_time" content="2017-02-12T07:57:17.134Z">
+<meta property="og:updated_time" content="2017-02-12T08:00:18.201Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Scrapy爬取51job数据挖掘岗位进行数据分析（1）">
 <meta name="twitter:description" content="近期在找数据挖掘的相关工作，所以想看一看在职位描述中所提及的技能树主要有哪些，以指导自己学习完善。遂用Python的Scrapy框架做了一只爬虫，爬取了数据挖掘相关的70770条岗位信息，并对其进行了简单的分析。本篇只写几个简单的结论，实现部分下一篇再写。本次用到的主要工具和模块如下：1234567OS:ArchlinuxPython 2.7 Scrapy -- 爬虫框架MongoDB -- 用以">
@@ -201,7 +201,7 @@
     <p>近期在找数据挖掘的相关工作，所以想看一看在职位描述中所提及的技能树主要有哪些，以指导自己学习完善。遂用Python的Scrapy框架做了一只爬虫，爬取了数据挖掘相关的70770条岗位信息，并对其进行了简单的分析。本篇只写几个简单的结论，实现部分下一篇再写。本次用到的主要工具和模块如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">OS:Archlinux</div><div class="line">Python 2.7 </div><div class="line">Scrapy -- 爬虫框架</div><div class="line">MongoDB -- 用以存储爬下来的数据</div><div class="line">Jieba -- 分词</div><div class="line">Pandas -- 数据计算分析</div><div class="line">Pygal -- 生成图像</div></pre></td></tr></table></figure></p>
 <h4 id="数据挖掘主要用到的技能树"><a href="#数据挖掘主要用到的技能树" class="headerlink" title="数据挖掘主要用到的技能树"></a>数据挖掘主要用到的技能树</h4><p>这块主要用Jieba对爬下来的职位描述内容进行分词，并根据词频生成标签云：  </p>
 <p><img src="http://ol8rk79pe.bkt.clouddn.com/123.jpg" alt="wordcloud">  </p>
-<p>从图中可以看出，Python凭借其良好的语言特性在数据挖掘领域也得到广泛应用，而JAVA则紧随其后；另外数据库应用也是数据挖掘的必备技能，其中传统的关系型数据库如MySQL，Oracle等应仍属于必修领域，反而非关系型数据库如MongoDB等可能由于市场还没有广泛使用而导致大家还没有普遍应用。统计分析工具SPSS也频频出镜。而作为数据存储和数据分析之间的必备技能ETL也自然出现在各职位需求中。在大规模数据存储方面SPARK和HADOOP的技能也称为各家的“必点菜”。另外可以看到LINUX应该是主要的工作系统，因此在职位描述中提到的频率也很高。此外，还有最基础的EXCEL,PPT等，仍作为配套需求技能较普遍出现在职位要求中。  </p>
+<p>从图中可以看出，Python凭借其良好的语言特性在数据挖掘领域也得到广泛应用，而JAVA则紧随其后；另外数据库应用也是数据挖掘的必备技能，其中传统的关系型数据库如MySQL，Oracle等应仍属于必修领域，反而非关系型数据库如MongoDB等可能由于市场还没有广泛使用而导致大家还没有普遍应用。统计分析工具SPSS也频频出镜。而作为数据存储和数据分析之间的必备技能ETL也自然出现在各职位需求中。在大规模数据存储方面SPARK和HADOOP,以及HIVE、HBase等技能也称为各家的“家常菜”。另外可以看到LINUX应该是主要的工作系统，因此在职位描述中提到的频率也很高。此外，还有最基础的EXCEL,PPT等，仍作为配套需求技能较普遍出现在职位要求中。  </p>
 <h4 id="数据挖掘薪酬分布"><a href="#数据挖掘薪酬分布" class="headerlink" title="数据挖掘薪酬分布"></a>数据挖掘薪酬分布</h4><p><img src="http://ol8rk79pe.bkt.clouddn.com/salary.png" alt="Salary">  </p>
 <p>如图所示，数据挖掘由于学科跨度大、学习曲线陡峭，因此市场给出的价格普遍不低， 普遍在1万往上走。  </p>
 <h4 id="数据挖掘职位地区分布"><a href="#数据挖掘职位地区分布" class="headerlink" title="数据挖掘职位地区分布"></a>数据挖掘职位地区分布</h4><p><img src="http://ol8rk79pe.bkt.clouddn.com/location.png" alt="Location">  </p>
