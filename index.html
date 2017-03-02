@@ -158,6 +158,110 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-机器学习中比算法更重要的——凸优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/机器学习中比算法更重要的——凸优化/">机器学习中比算法更重要的——凸优化(1)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/02/机器学习中比算法更重要的——凸优化/" class="archive-article-date">
+  	<time datetime="2017-03-02T02:45:07.000Z" itemprop="datePublished">2017-03-02</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+  
+
+
+<div id="toc" class="toc-article">
+  <strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础概要"><span class="toc-text">基础概要</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是建模"><span class="toc-text">什么是建模?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是优化算法？"><span class="toc-text">什么是优化算法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局优化、局部优化与凸函数"><span class="toc-text">全局优化、局部优化与凸函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习为什么要掌握优化的知识？"><span class="toc-text">机器学习为什么要掌握优化的知识？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#凸集与凸函数"><span class="toc-text">凸集与凸函数</span></a></li></ol></li></ol>
+</div>
+
+
+
+    <p>在机器学习过程中，最初认为算法是最核心的问题，但是随着学习的推进，慢慢觉得Optimization是更加关键的知识，所以将学习心得整理于此。关于凸优化的问题主要学习两本书， 一本是<strong><numerical optimization=""></numerical></strong>,这本比较偏工程，值得好好研习，另一本是<strong><convex optimization=""></convex></strong>，这本比较偏理论。</p>
+<h1 id="基础概要"><a href="#基础概要" class="headerlink" title="基础概要"></a>基础概要</h1><h2 id="什么是建模"><a href="#什么是建模" class="headerlink" title="什么是建模?"></a>什么是建模?</h2><p>对特定问题界定目标函数、变量、约束条件的过程，就叫建模。第一步也是最重要的一步，就是针对问题找到一个Objective，即目标函数。如果模型过于简单，则没有办法很好的描述实际问题；如果模型过于复杂，也会难以解决。</p>
+<h2 id="什么是优化算法？"><a href="#什么是优化算法？" class="headerlink" title="什么是优化算法？"></a>什么是优化算法？</h2><p>当模型搭建起来后，为使模型能够获得最优解的过程就是优化，而使用的算法就叫优化算法。事实上并没有普适的优化算法， 针对不同的问题，优化算法各不相同。所选择的优化算法是否合适，直接关系到计算过程是否迅速，以及——是否能找到问题的解。</p>
+<h2 id="全局优化、局部优化与凸函数"><a href="#全局优化、局部优化与凸函数" class="headerlink" title="全局优化、局部优化与凸函数"></a>全局优化、局部优化与凸函数</h2><p>局部优化速度明显高于全局优化，因此在实际工程中，我们总是将全局优化的问题尽量转化为局部优化的问题。而在Convex Programme中，所有的局部最优解等于全局最优解，这就是我们要研究凸优化出发点和意义所在。</p>
+<h2 id="机器学习为什么要掌握优化的知识？"><a href="#机器学习为什么要掌握优化的知识？" class="headerlink" title="机器学习为什么要掌握优化的知识？"></a>机器学习为什么要掌握优化的知识？</h2><p>一方面是为了求得模型的最优解；另一方面是基于算法工程师的工作特性——不能通过多次测试程序的方式，验证所求解是否正确或者这个算法根本上是否work，只能通过数学上的方法来检验（如Sensitive Analysis敏感性分析）。因此Optimization是机器学习必修的一项技能。</p>
+<h2 id="凸集与凸函数"><a href="#凸集与凸函数" class="headerlink" title="凸集与凸函数"></a>凸集与凸函数</h2><blockquote>
+<p>S ∈ IR n is a convex set if the straight line segment connecting any two points in S lies entirely inside S.  </p>
+</blockquote>
+<p>集合中任意两点的连线，都落在来这个集合内，那么这个集合就是<a href="https://zh.wikipedia.org/wiki/%E5%87%B8%E9%9B%86" target="_blank" rel="external">凸集</a>。<br>而凸函数是什么？一张图解释：<br><img src="http://ol8rk79pe.bkt.clouddn.com/Convex_supergraph.svg.png" alt="凸函数"> </p>
+<p><strong>函数（蓝色）是凸的:当且仅当其上方的区域（绿色）是一个凸集。</strong><br>而一个无约束函数如果是凸函数，那么通常会收敛到一个固定值（最大值、最小值、拐点），换句话说，凸函数是一定可解的。</p>
+
+  
+
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">凸优化</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/机器学习/" class="article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/02/机器学习中比算法更重要的——凸优化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-用Scrapy爬取51job数据挖掘岗位进行数据分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -204,7 +308,7 @@
 <h4 id="数据挖掘学位和薪水的关系"><a href="#数据挖掘学位和薪水的关系" class="headerlink" title="数据挖掘学位和薪水的关系"></a>数据挖掘学位和薪水的关系</h4><p><img src="http://ol8rk79pe.bkt.clouddn.com/salary-degree.png" alt="Location">  </p>
 <p>在1-2万薪水这个区间，主要为本科学历， 而在4.5-8千的区间，大专学历占比要比本科学历大。另外值得注意的是，很多企业在学历栏的要求是缺省的，也可以从一定程度说明，在数据挖掘领域，只要有真本领，能解决问题，不管学历高低，仍是可以在市场上找到立足之地的，较符合“YOU CAN YOU UP”的逻辑。</p>
 <h4 id="在需求前十区域数据挖掘工作经验和薪水的关系"><a href="#在需求前十区域数据挖掘工作经验和薪水的关系" class="headerlink" title="在需求前十区域数据挖掘工作经验和薪水的关系"></a>在需求前十区域数据挖掘工作经验和薪水的关系</h4><p><img src="http://ol8rk79pe.bkt.clouddn.com/salary-exp.png" alt="Location">  </p>
-<p>在这里更是凸显互联网行业“YOU CAN YOU UP”的逻辑， 有较多企业在工作经验要求上缺省，也有可能是在工作要求里作说明，但由于工作经验爬取信息的来源是系统后台有生成的标注，因时间关系此处没有作另外处理。由图中还可以看出，工作两年和工作3-4年也是一个抢手的区间。</p>
+<p>在这里更是凸显互联网行业“YOU CAN YOU UP”的逻辑， 有较多企业在工作经验要求上缺省，也有可能是在工作要求里作了另外说明（本文工作经验爬取信息的来源是系统后台有生成的标注），因时间关系此处没有作另外处理。由图中还可以看出，工作两年和工作3-4年也是一个抢手的区间。</p>
 
   
 
@@ -1045,104 +1149,6 @@
 
 
   
-    <article id="post-什么是范数？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/24/什么是范数？/">什么是范数？</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/24/什么是范数？/" class="archive-article-date">
-  	<time datetime="2017-01-24T02:49:11.000Z" itemprop="datePublished">2017-01-24</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-  
-
-
-<div id="toc" class="toc-article">
-  <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#补给知识"><span class="toc-text">补给知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-函数与几何的关系"><span class="toc-text">1. 函数与几何的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-映射与矩阵的关系"><span class="toc-text">2. 映射与矩阵的关系</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#几种范数的意义"><span class="toc-text">几种范数的意义</span></a></li></ol>
-</div>
-
-
-
-    <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>范数，是具有“长度”概念的函数。比如，二维欧几里德空间里面，用一个箭头表示矢量，对应范数就是这矢量的长度。一维空间上它是绝对值，二维空间上它是模。<br>是不是没明白？ 要想搞懂这个，需要一些其他的知识。</p>
-<h1 id="补给知识"><a href="#补给知识" class="headerlink" title="补给知识"></a>补给知识</h1><h2 id="1-函数与几何的关系"><a href="#1-函数与几何的关系" class="headerlink" title="1. 函数与几何的关系"></a>1. 函数与几何的关系</h2><p>函数是几何的抽象概括，几何是函数的具体描述。但是，当函数超过三维时，就难以获得较好的想象。于是需要引入映射的概念。</p>
-<h2 id="2-映射与矩阵的关系"><a href="#2-映射与矩阵的关系" class="headerlink" title="2. 映射与矩阵的关系"></a>2. 映射与矩阵的关系</h2><p>之前讲到三维以上几何就不好想象了，但是我们仍要对三维以上的事物做比较、做分析。怎么办？<strong>映射。</strong>通过映射，<strong>给空间内的任意一个元素配一个实数，实数就可以拿来比较了</strong>。<br>为了更好的表达映射，我们通过<strong>矩阵</strong>来表示映射关系。<br>因为这个元素，可以是一个数，也可以是一个集合，也可以是一个向量，所要用矩阵来表达更为方便。<br>到这里，就可以给范数一个更具象的描述：<strong>范数就是这个集合 或 矩阵 的大小，范数大，意味着矩阵就大。其他情况也可以类推。</strong></p>
-<h1 id="几种范数的意义"><a href="#几种范数的意义" class="headerlink" title="几种范数的意义"></a>几种范数的意义</h1><ul>
-<li>L0范数：向量中非零元素的个数。机器学习中与稀疏编码相关。</li>
-<li>L1范数：绝对值之和。</li>
-<li>L2范数：通常意义上的模。</li>
-</ul>
-
-  
-
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">范数</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数学之美/" class="article-tag-list-link color5">数学之美</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/24/什么是范数？/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1244,6 +1250,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mapreduce</a>
               </li>
              
@@ -1268,7 +1278,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">凸优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1280,23 +1302,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据分析</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">encoding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

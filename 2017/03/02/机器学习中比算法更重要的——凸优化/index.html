@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xrazor.net">
-  <title>Archives: 2017/2 | Razor</title>
+  <title>机器学习中比算法更重要的——凸优化(1) | Razor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="奥卡姆小剃刀的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Razor">
-<meta property="og:url" content="http://xrazor.net/archives/2017/02/index.html">
+  <meta name="description" content="在机器学习过程中，最初认为算法是最核心的问题，但是随着学习的推进，慢慢觉得Optimization是更加关键的知识，所以将学习心得整理于此。关于凸优化的问题主要学习两本书， 一本是,这本比较偏工程，值得好好研习，另一本是，这本比较偏理论。
+基础概要什么是建模?对特定问题界定目标函数、变量、约束条件的过程，就叫建模。第一步也是最重要的一步，就是针对问题找到一个Objective，即目标函数。如果模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习中比算法更重要的——凸优化(1)">
+<meta property="og:url" content="http://xrazor.net/2017/03/02/机器学习中比算法更重要的——凸优化/index.html">
 <meta property="og:site_name" content="Razor">
-<meta property="og:description" content="奥卡姆小剃刀的博客">
+<meta property="og:description" content="在机器学习过程中，最初认为算法是最核心的问题，但是随着学习的推进，慢慢觉得Optimization是更加关键的知识，所以将学习心得整理于此。关于凸优化的问题主要学习两本书， 一本是,这本比较偏工程，值得好好研习，另一本是，这本比较偏理论。
+基础概要什么是建模?对特定问题界定目标函数、变量、约束条件的过程，就叫建模。第一步也是最重要的一步，就是针对问题找到一个Objective，即目标函数。如果模型">
+<meta property="og:image" content="http://ol8rk79pe.bkt.clouddn.com/Convex_supergraph.svg.png">
+<meta property="og:updated_time" content="2017-03-02T05:32:06.047Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Razor">
-<meta name="twitter:description" content="奥卡姆小剃刀的博客">
+<meta name="twitter:title" content="机器学习中比算法更重要的——凸优化(1)">
+<meta name="twitter:description" content="在机器学习过程中，最初认为算法是最核心的问题，但是随着学习的推进，慢慢觉得Optimization是更加关键的知识，所以将学习心得整理于此。关于凸优化的问题主要学习两本书， 一本是,这本比较偏工程，值得好好研习，另一本是，这本比较偏理论。
+基础概要什么是建模?对特定问题界定目标函数、变量、约束条件的过程，就叫建模。第一步也是最重要的一步，就是针对问题找到一个Objective，即目标函数。如果模型">
+<meta name="twitter:image" content="http://ol8rk79pe.bkt.clouddn.com/Convex_supergraph.svg.png">
   
     <link rel="alternative" href="/atom.xml" title="Razor" type="application/atom+xml">
   
@@ -156,447 +162,58 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-机器学习中比算法更重要的——凸优化" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      机器学习中比算法更重要的——凸优化(1)
+    </h1>
+  
+
+        
+        <a href="/2017/03/02/机器学习中比算法更重要的——凸优化/" class="archive-article-date">
+  	<time datetime="2017-03-02T02:45:07.000Z" itemprop="datePublished">2017-03-02</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+  
+
+
+<div id="toc" class="toc-article">
+  <strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础概要"><span class="toc-text">基础概要</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是建模"><span class="toc-text">什么是建模?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是优化算法？"><span class="toc-text">什么是优化算法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局优化、局部优化与凸函数"><span class="toc-text">全局优化、局部优化与凸函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习为什么要掌握优化的知识？"><span class="toc-text">机器学习为什么要掌握优化的知识？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#凸集与凸函数"><span class="toc-text">凸集与凸函数</span></a></li></ol></li></ol>
+</div>
+
+
+
+    <p>在机器学习过程中，最初认为算法是最核心的问题，但是随着学习的推进，慢慢觉得Optimization是更加关键的知识，所以将学习心得整理于此。关于凸优化的问题主要学习两本书， 一本是<strong><numerical optimization=""></numerical></strong>,这本比较偏工程，值得好好研习，另一本是<strong><convex optimization=""></convex></strong>，这本比较偏理论。</p>
+<h1 id="基础概要"><a href="#基础概要" class="headerlink" title="基础概要"></a>基础概要</h1><h2 id="什么是建模"><a href="#什么是建模" class="headerlink" title="什么是建模?"></a>什么是建模?</h2><p>对特定问题界定目标函数、变量、约束条件的过程，就叫建模。第一步也是最重要的一步，就是针对问题找到一个Objective，即目标函数。如果模型过于简单，则没有办法很好的描述实际问题；如果模型过于复杂，也会难以解决。</p>
+<h2 id="什么是优化算法？"><a href="#什么是优化算法？" class="headerlink" title="什么是优化算法？"></a>什么是优化算法？</h2><p>当模型搭建起来后，为使模型能够获得最优解的过程就是优化，而使用的算法就叫优化算法。事实上并没有普适的优化算法， 针对不同的问题，优化算法各不相同。所选择的优化算法是否合适，直接关系到计算过程是否迅速，以及——是否能找到问题的解。</p>
+<h2 id="全局优化、局部优化与凸函数"><a href="#全局优化、局部优化与凸函数" class="headerlink" title="全局优化、局部优化与凸函数"></a>全局优化、局部优化与凸函数</h2><p>局部优化速度明显高于全局优化，因此在实际工程中，我们总是将全局优化的问题尽量转化为局部优化的问题。而在Convex Programme中，所有的局部最优解等于全局最优解，这就是我们要研究凸优化出发点和意义所在。</p>
+<h2 id="机器学习为什么要掌握优化的知识？"><a href="#机器学习为什么要掌握优化的知识？" class="headerlink" title="机器学习为什么要掌握优化的知识？"></a>机器学习为什么要掌握优化的知识？</h2><p>一方面是为了求得模型的最优解；另一方面是基于算法工程师的工作特性——不能通过多次测试程序的方式，验证所求解是否正确或者这个算法根本上是否work，只能通过数学上的方法来检验（如Sensitive Analysis敏感性分析）。因此Optimization是机器学习必修的一项技能。</p>
+<h2 id="凸集与凸函数"><a href="#凸集与凸函数" class="headerlink" title="凸集与凸函数"></a>凸集与凸函数</h2><blockquote>
+<p>S ∈ IR n is a convex set if the straight line segment connecting any two points in S lies entirely inside S.  </p>
+</blockquote>
+<p>集合中任意两点的连线，都落在来这个集合内，那么这个集合就是<a href="https://zh.wikipedia.org/wiki/%E5%87%B8%E9%9B%86" target="_blank" rel="external">凸集</a>。<br>而凸函数是什么？一张图解释：<br><img src="http://ol8rk79pe.bkt.clouddn.com/Convex_supergraph.svg.png" alt="凸函数"> </p>
+<p><strong>函数（蓝色）是凸的:当且仅当其上方的区域（绿色）是一个凸集。</strong><br>而一个无约束函数如果是凸函数，那么通常会收敛到一个固定值（最大值、最小值、拐点），换句话说，凸函数是一定可解的。</p>
+
+  
+
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/12/用Scrapy爬取51job数据挖掘岗位进行数据分析/" class="archive-article-date">
-  	<time datetime="2017-02-12T06:44:57.000Z" itemprop="datePublished">2017-02-12</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/12/用Scrapy爬取51job数据挖掘岗位进行数据分析/">用Scrapy爬取51job数据挖掘岗位进行数据分析（1）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">scrapy</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据分析/" class="article-tag-list-link color5">数据分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/11/计算机字符编码手札：ASCii、Unicode和UTF-8/" class="archive-article-date">
-  	<time datetime="2017-02-10T22:37:53.000Z" itemprop="datePublished">2017-02-11</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/11/计算机字符编码手札：ASCii、Unicode和UTF-8/">计算机字符编码手札：ASCii、Unicode和UTF-8</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">encoding</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/11/Live-a-boxer-life/" class="archive-article-date">
-  	<time datetime="2017-02-10T21:41:07.000Z" itemprop="datePublished">2017-02-11</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/11/Live-a-boxer-life/">Live-a-boxer-life</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/09/Mapreduce是小学生都会玩的小把戏/" class="archive-article-date">
-  	<time datetime="2017-02-09T06:28:29.000Z" itemprop="datePublished">2017-02-09</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/09/Mapreduce是小学生都会玩的小把戏/">MapReduce是小学生都会玩的小把戏</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mapreduce</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hadoop/" class="article-tag-list-link color2">hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/09/在archlinux上安装mongodb/" class="archive-article-date">
-  	<time datetime="2017-02-09T02:51:40.000Z" itemprop="datePublished">2017-02-09</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/09/在archlinux上安装mongodb/">在archlinux上安装mongodb</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">archlinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/08/从造物者的角度理解python类中init的意义/" class="archive-article-date">
-  	<time datetime="2017-02-08T07:35:19.000Z" itemprop="datePublished">2017-02-08</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/08/从造物者的角度理解python类中init的意义/">从造物者的角度理解python类中init的意义</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/08/Dataframe常用操作/" class="archive-article-date">
-  	<time datetime="2017-02-08T06:31:44.000Z" itemprop="datePublished">2017-02-08</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/08/Dataframe常用操作/">Dataframe常用操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pandas</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/03/信息熵、信息增益与Gini系数/" class="archive-article-date">
-  	<time datetime="2017-02-03T07:51:28.000Z" itemprop="datePublished">2017-02-03</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/03/信息熵、信息增益与Gini系数/">信息熵、信息增益与Gini指数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -604,11 +221,19 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">凸优化</a>
+        		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -621,71 +246,86 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/02/P问题、NP问题与NPC问题/" class="archive-article-date">
-  	<time datetime="2017-02-02T09:11:11.000Z" itemprop="datePublished">2017-02-02</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
     </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/02/P问题、NP问题与NPC问题/">P问题、NP问题与NPC问题</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xrazor.net/2017/03/02/机器学习中比算法更重要的——凸优化/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数学之美/" class="article-tag-list-link color5">数学之美</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/02/12/用Scrapy爬取51job数据挖掘岗位进行数据分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用Scrapy爬取51job数据挖掘岗位进行数据分析（1）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -712,8 +352,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

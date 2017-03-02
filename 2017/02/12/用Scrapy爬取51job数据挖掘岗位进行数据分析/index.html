@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://ol8rk79pe.bkt.clouddn.com/location.png">
 <meta property="og:image" content="http://ol8rk79pe.bkt.clouddn.com/salary-degree.png">
 <meta property="og:image" content="http://ol8rk79pe.bkt.clouddn.com/salary-exp.png">
-<meta property="og:updated_time" content="2017-02-12T08:00:18.201Z">
+<meta property="og:updated_time" content="2017-02-14T23:32:03.691Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Scrapy爬取51job数据挖掘岗位进行数据分析（1）">
 <meta name="twitter:description" content="近期在找数据挖掘的相关工作，所以想看一看在职位描述中所提及的技能树主要有哪些，以指导自己学习完善。遂用Python的Scrapy框架做了一只爬虫，爬取了数据挖掘相关的70770条岗位信息，并对其进行了简单的分析。本篇只写几个简单的结论，实现部分下一篇再写。本次用到的主要工具和模块如下：1234567OS:ArchlinuxPython 2.7 Scrapy -- 爬虫框架MongoDB -- 用以">
@@ -209,7 +209,7 @@
 <h4 id="数据挖掘学位和薪水的关系"><a href="#数据挖掘学位和薪水的关系" class="headerlink" title="数据挖掘学位和薪水的关系"></a>数据挖掘学位和薪水的关系</h4><p><img src="http://ol8rk79pe.bkt.clouddn.com/salary-degree.png" alt="Location">  </p>
 <p>在1-2万薪水这个区间，主要为本科学历， 而在4.5-8千的区间，大专学历占比要比本科学历大。另外值得注意的是，很多企业在学历栏的要求是缺省的，也可以从一定程度说明，在数据挖掘领域，只要有真本领，能解决问题，不管学历高低，仍是可以在市场上找到立足之地的，较符合“YOU CAN YOU UP”的逻辑。</p>
 <h4 id="在需求前十区域数据挖掘工作经验和薪水的关系"><a href="#在需求前十区域数据挖掘工作经验和薪水的关系" class="headerlink" title="在需求前十区域数据挖掘工作经验和薪水的关系"></a>在需求前十区域数据挖掘工作经验和薪水的关系</h4><p><img src="http://ol8rk79pe.bkt.clouddn.com/salary-exp.png" alt="Location">  </p>
-<p>在这里更是凸显互联网行业“YOU CAN YOU UP”的逻辑， 有较多企业在工作经验要求上缺省，也有可能是在工作要求里作说明，但由于工作经验爬取信息的来源是系统后台有生成的标注，因时间关系此处没有作另外处理。由图中还可以看出，工作两年和工作3-4年也是一个抢手的区间。</p>
+<p>在这里更是凸显互联网行业“YOU CAN YOU UP”的逻辑， 有较多企业在工作经验要求上缺省，也有可能是在工作要求里作了另外说明（本文工作经验爬取信息的来源是系统后台有生成的标注），因时间关系此处没有作另外处理。由图中还可以看出，工作两年和工作3-4年也是一个抢手的区间。</p>
 
   
 
@@ -310,6 +310,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/03/02/机器学习中比算法更重要的——凸优化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          机器学习中比算法更重要的——凸优化(1)
+        
+      </div>
+    </a>
   
   
     <a href="/2017/02/11/计算机字符编码手札：ASCii、Unicode和UTF-8/" id="article-nav-older" class="article-nav-link-wrap">
@@ -425,6 +434,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mapreduce</a>
               </li>
              
@@ -449,7 +462,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">凸优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -461,23 +486,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据分析</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">encoding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
