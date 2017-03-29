@@ -158,6 +158,198 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Dataframe常用操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/08/Dataframe常用操作/">Dataframe常用操作</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/08/Dataframe常用操作/" class="archive-article-date">
+  	<time datetime="2017-02-08T06:31:44.000Z" itemprop="datePublished">2017-02-08</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+  
+
+
+<div id="toc" class="toc-article">
+  <strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#统计描述"><span class="toc-text">统计描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-describe"><span class="toc-text">frame.describe()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-mean"><span class="toc-text">frame.mean()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-apply-lambda-x-x-max-x-min"><span class="toc-text">frame.apply(lambda x:x.max()-x.min())</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缺失值处理"><span class="toc-text">缺失值处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-isnull"><span class="toc-text">frame.isnull()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-dropna"><span class="toc-text">frame.dropna()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-replace"><span class="toc-text">frame.replace()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-fillna-value-x"><span class="toc-text">frame.fillna(value=x)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型查看"><span class="toc-text">数据类型查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-dtypes"><span class="toc-text">frame.dtypes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-astype"><span class="toc-text">frame.astype()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-sort-index-axis-1-ascending-False"><span class="toc-text">frame.sort_index(axis=1,ascending=False)</span></a></li></ol></li></ol>
+</div>
+
+
+
+    <p>比如有一个数据集，将其转化为Dataframe格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">frame = Dataframe(datas)</div></pre></td></tr></table></figure></p>
+<p>之后可对frame作如下操作：  </p>
+<h2 id="统计描述"><a href="#统计描述" class="headerlink" title="统计描述"></a>统计描述</h2><h3 id="frame-describe"><a href="#frame-describe" class="headerlink" title="frame.describe()"></a>frame.describe()</h3><p>查看数据摘要，包括数据查看（默认共输出首尾60行数据）和行列统计，包括计数，均值，std，各个分位数。由于源数据通常包含一些空值甚至空列，会影响数据分析的时间和效率，在预览了数据摘要后，需要对这些无效数据进行处理。</p>
+<h3 id="frame-mean"><a href="#frame-mean" class="headerlink" title="frame.mean()"></a>frame.mean()</h3><p>默认对每一列的数据求平均值；若加上参数a.mean(1)则对每一行求平均值。</p>
+<h3 id="frame-apply-lambda-x-x-max-x-min"><a href="#frame-apply-lambda-x-x-max-x-min" class="headerlink" title="frame.apply(lambda x:x.max()-x.min())"></a>frame.apply(lambda x:x.max()-x.min())</h3><p>表示返回所有列中最大值-最小值的差。</p>
+<h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><h3 id="frame-isnull"><a href="#frame-isnull" class="headerlink" title="frame.isnull()"></a>frame.isnull()</h3><p>查看数据表中哪些为空值，与它相反的方法DataFrame.notnull() ，Pandas会将表中所有数据进行null计算，以True/False作为结果进行填充。</p>
+<h3 id="frame-dropna"><a href="#frame-dropna" class="headerlink" title="frame.dropna()"></a>frame.dropna()</h3><p>不加参数的情况下， dropna() 会移除所有包含空值的行。如果只想移除全部为空值的列，需要加上 axis 和 how 两个参数。</p>
+<h3 id="frame-replace"><a href="#frame-replace" class="headerlink" title="frame.replace()"></a>frame.replace()</h3><p>可用来处理剩余行冗余数据，使之合规并压缩数据存储空间。</p>
+<h3 id="frame-fillna-value-x"><a href="#frame-fillna-value-x" class="headerlink" title="frame.fillna(value=x)"></a>frame.fillna(value=x)</h3><p>表示用值为x的数来对缺失值进行填充。</p>
+<h2 id="数据类型查看"><a href="#数据类型查看" class="headerlink" title="数据类型查看"></a>数据类型查看</h2><h3 id="frame-dtypes"><a href="#frame-dtypes" class="headerlink" title="frame.dtypes"></a>frame.dtypes</h3><p>查看每列的数据类型，Pandas默认可以读出int和float64，其它的都处理为object，需要转换格式的一般为日期时间。</p>
+<h3 id="frame-astype"><a href="#frame-astype" class="headerlink" title="frame.astype()"></a>frame.astype()</h3><p>对整个DataFrame或某一列进行数据格式转换，支持Python和NumPy的数据类型。</p>
+<h3 id="frame-sort-index-axis-1-ascending-False"><a href="#frame-sort-index-axis-1-ascending-False" class="headerlink" title="frame.sort_index(axis=1,ascending=False)"></a>frame.sort_index(axis=1,ascending=False)</h3><p>axis=1表示对所有的columns进行排序，下面的数也跟着发生移动。后面的ascending=False表示按降序排列，参数缺失时默认升序。</p>
+
+  
+
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pandas</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/08/Dataframe常用操作/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-信息熵、信息增益与Gini系数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/03/信息熵、信息增益与Gini系数/">信息熵、信息增益与Gini指数</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/03/信息熵、信息增益与Gini系数/" class="archive-article-date">
+  	<time datetime="2017-02-03T07:51:28.000Z" itemprop="datePublished">2017-02-03</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+  
+
+
+<div id="toc" class="toc-article">
+  <strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#信息熵"><span class="toc-text">信息熵</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息增益"><span class="toc-text">信息增益</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Gini指数"><span class="toc-text">Gini指数</span></a></li></ol>
+</div>
+
+
+
+    <p>在机器学习决策树中，引入里熵、信息增益、信息增益比和Gini指数，作为特征选择的准则。不同的算法对应了不同的特征选择准则，如ID3选用信息增益的大小作为特征选择判定的标准，C4.5则选用信息增益比为选择标准，CART则用Gini指数作为选择标准。那么，所引入的这几个指标的内涵意义是什么呢？本文将作一个简单的梳理。</p>
+<h1 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h1><p>在信息论里面，熵被用来衡量一个随机变量出现的期望值，<strong>对不确定性的测量</strong>，是描述一个系统所需的最低存储单元。在信息世界，熵越高，<strong>所需</strong>传递的信息越丰富，熵越低，则意味着<strong>所需</strong>传输的信息越少。而在热力学里，熵越高，表示混乱度越高。<br>这三个解释乍一看毫无关联，实际上确实可以相互印证的。以抛硬币为例，自然条件下结果为正面或反面的概率均为50%， 此时结果的不确定性最高， 越混乱，而我们要描述这个结果所需的文字（暂且用文字的个数代表存储单元）越多，比如你会这么描述“结果可能是正面，也可能是反面”（加逗号14个字）；而当我们<strong>假定</strong>正面出现的概率为100%时，信息熵为0，不混乱很清晰，而此时我们描述这个结果所需的存储单元是很少的，比如说“是正面”（3个字）就能描述清楚。  </p>
+<h1 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h1><p>有了上面的概念，我们就可以结合ID3算法来看看信息增益是什么东西。<br>在ID3中，使用信息增益作为特征选择的准则，用H（D）表示数据集的<strong>经验熵</strong>，用H（D|A)表示在A特征下数据集D的<strong>经验条件熵</strong>，则信息增益g（D，A）= H(D) - H(D|A), 表示 有A 和 没A ，整个系统的不确定性变化了多少。这里要牢记， 熵高，是说明不确定很大，如果H（D）很大，而 H（D|A)很小，则g（D,A）会趋大， <strong>说明特征A 的存在，大大降低了系统的不确定性， 因此它是一个关键的特征</strong>。</p>
+<h1 id="Gini指数"><a href="#Gini指数" class="headerlink" title="Gini指数"></a>Gini指数</h1><p>Gini指数是CART算法中生成分类树时用来选择特征的一个指标。</p>
+
+  
+
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/机器学习/" class="article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/03/信息熵、信息增益与Gini系数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-P问题、NP问题与NPC问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -295,9 +487,9 @@
 <h1 id="补给知识"><a href="#补给知识" class="headerlink" title="补给知识"></a>补给知识</h1><h2 id="1-函数与几何的关系"><a href="#1-函数与几何的关系" class="headerlink" title="1. 函数与几何的关系"></a>1. 函数与几何的关系</h2><p>函数是几何的抽象概括，几何是函数的具体描述。但是，当函数超过三维时，就难以获得较好的想象。于是需要引入映射的概念。</p>
 <h2 id="2-映射与矩阵的关系"><a href="#2-映射与矩阵的关系" class="headerlink" title="2. 映射与矩阵的关系"></a>2. 映射与矩阵的关系</h2><p>之前讲到三维以上几何就不好想象了，但是我们仍要对三维以上的事物做比较、做分析。怎么办？<strong>映射。</strong>通过映射，<strong>给空间内的任意一个元素配一个实数，实数就可以拿来比较了</strong>。<br>为了更好的表达映射，我们通过<strong>矩阵</strong>来表示映射关系。<br>因为这个元素，可以是一个数，也可以是一个集合，也可以是一个向量，所要用矩阵来表达更为方便。<br>到这里，就可以给范数一个更具象的描述：<strong>范数就是这个集合 或 矩阵 的大小，范数大，意味着矩阵就大。其他情况也可以类推。</strong></p>
 <h1 id="几种范数的意义"><a href="#几种范数的意义" class="headerlink" title="几种范数的意义"></a>几种范数的意义</h1><ul>
-<li>L0范数：向量中非零元素的个数。机器学习中与稀疏编码相关。</li>
-<li>L1范数：绝对值之和。</li>
-<li>L2范数：通常意义上的模。</li>
+<li>L0范数：权值向量w中不为0的分量的个数。是假设参数服从拉普拉斯分布（双指数分布），保证权值向量的稀疏性。</li>
+<li>L1范数：权值向量中每个分量的绝对值之和。也是保证权值向量的稀疏性。L1范数和L0范数可以实现稀疏，L1因具有比L0更好的优化求解特性而被广泛应用。</li>
+<li>L2范数：权值向量中各分量求平方和之后开方，即通常意义上的模。是假设参数服从高斯分布，防止过拟合。和L1分量不同，它不会让权值等于0，而是尽可能接近于0，这里面有很大的区别。L1会趋向于产生少量的特征，而其他的特征都是0，而L2会选择更多的特征，这些特征都会接近于0。L2还有助于处理 condition number不好的情况下矩阵求逆很困难的问题，加速求解。</li>
 </ul>
 
   
@@ -936,109 +1128,9 @@
 
 
   
-    <article id="post-为什么要输出自己的知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/10/为什么要输出自己的知识/">为什么要输出自己的知识</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/10/为什么要输出自己的知识/" class="archive-article-date">
-  	<time datetime="2017-01-10T01:13:10.000Z" itemprop="datePublished">2017-01-10</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-  
-
-
-<div id="toc" class="toc-article">
-  <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要习惯“输出”知识？"><span class="toc-text">为什么要习惯“输出”知识？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么“输出”知识"><span class="toc-text">怎么“输出”知识</span></a></li></ol>
-</div>
-
-
-
-    <h2 id="为什么要习惯“输出”知识？"><a href="#为什么要习惯“输出”知识？" class="headerlink" title="为什么要习惯“输出”知识？"></a>为什么要习惯“输出”知识？</h2><p>我们每个人都经历了十几年甚至几十年漫长的学习生涯， 不知道大家有没有过这样的经历：  </p>
-<ol>
-<li>学了很多但是讲不出来  </li>
-<li>知识点无法串成一个体系  </li>
-<li>感觉东西越学越多  </li>
-</ol>
-<p>我也有过相似的经历，并且为此困惑了很长的时间，直到看到一句话：  </p>
-<blockquote>
-<p>最好的学习方式就是“输出”。  </p>
-</blockquote>
-<p>的确，从别人那“听”来的知识，都是别人的，只有从自己这“输出”出去的知识才是自己的。这“输出”的过程，等于是强迫大脑对自己的知识进行系统化联接的过程，是一个对自己知识在加工的过程。所以，当我们做过一次演讲、发表一篇文章后，总感觉自己对相关的知识的理解更深了。  </p>
-<h2 id="怎么“输出”知识"><a href="#怎么“输出”知识" class="headerlink" title="怎么“输出”知识"></a>怎么“输出”知识</h2><p>首先要明确的是，“输出”的知识不一定要给到某一个具体的对象，而是通过这个过程对自己的思路和知识储备有一个归纳整理的过程，因此，“输出”的方法就有很多啦。  </p>
-<p>1.<strong>写博客</strong>。随便找个地儿，有什么心得感悟，就记录下来，就像写日记一样（其实写日记真的是一个很好的习惯）。等到过一段时间再会过头来印证，彼时的理解对不对？<br>2.<strong>现场分享</strong>。不要害怕和大家交流自己的观点，世上不会有相同的两片叶子，大胆说出自己的想法，不仅使别人得到启发，更重要的是自己在说的过程中对思维进行了提炼。<br>3.<strong>对着镜子讲话</strong>。这是我发现的一个秘诀。有时候可能对自己不是很有自信，或是想法还没有很成熟的时候，就对镜子对着自己说，尽可能的把自己的想法描述得很清晰。<strong>当你能很清晰很有层次的描述某个问题的时候，说明你已经理解了它；当你能用三言两语把它讲清楚的时候，你已经掌握了它；当你无论碰到谁都能用合适的语言在短时间内使其窥探到问题的全貌的时候，你已经驾驭了它。</strong>  </p>
-<p>现在网络很发达，要做什么分享也很方便，无数的平台无数的渠道，在互联网城邦中，做一个有分享精神的人，利人利己利国利民。：D</p>
-
-  
-
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IQ</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/10/为什么要输出自己的知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1169,15 +1261,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分词</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">word2vec</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">IQ</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">范数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1194,6 +1294,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">凸优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
