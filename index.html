@@ -158,6 +158,289 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-numpy常用操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/04/numpy常用操作/">numpy常用操作</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/04/numpy常用操作/" class="archive-article-date">
+  	<time datetime="2017-04-03T16:13:26.000Z" itemprop="datePublished">2017-04-04</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+  
+
+
+
+
+    <h2 id="numpy-ravel"><a href="#numpy-ravel" class="headerlink" title="numpy.ravel()"></a>numpy.ravel()</h2><p>多维降为一维：[[],[],[]] –&gt; [, , ,]</p>
+<h2 id="numpy-unique-arg"><a href="#numpy-unique-arg" class="headerlink" title="numpy.unique(arg)"></a>numpy.unique(arg)</h2><p>Series中唯一的元素：[1,1,2,3,3] –&gt; [1,2,3]</p>
+<h2 id="numpy-flat"><a href="#numpy-flat" class="headerlink" title="numpy.flat"></a>numpy.flat</h2><p>也是多维边一维，但是</p>
+
+  
+
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">numpy</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/04/numpy常用操作/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-TensorFlow入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/03/TensorFlow入门/">TensorFlow入门</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/03/TensorFlow入门/" class="archive-article-date">
+  	<time datetime="2017-04-03T03:09:09.000Z" itemprop="datePublished">2017-04-03</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+  
+
+
+<div id="toc" class="toc-article">
+  <strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是TensorFlow"><span class="toc-text">什么是TensorFlow</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tensor"><span class="toc-text">Tensor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Operation"><span class="toc-text">Operation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Graph"><span class="toc-text">Graph</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sesion"><span class="toc-text">Sesion</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一个TensorFlow程序"><span class="toc-text">第一个TensorFlow程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Graph-Session框架"><span class="toc-text">Graph+Session框架</span></a></li></ol></li></ol>
+</div>
+
+
+
+    <h1 id="什么是TensorFlow"><a href="#什么是TensorFlow" class="headerlink" title="什么是TensorFlow"></a>什么是TensorFlow</h1><p>TensorFlow是时下火热的深度学习框架，由Google在2015年年底开源，它拥有易用的Python接口，可以部署在一台或多台CPU/GPU上，并且兼容多个平台，在图形分类、音频处理、推荐系统和自然语言处理等场景下都有丰富的应用。<br>TensorFlow的流行让深度学习的门槛变得越来月底，只要由Python和机器学习基础，使用神经网络模型将变得非常简单。<br>TensorFlow是基于计算图的框架，理解TensorFlow前，先对以下几个概念有所了解：</p>
+<h2 id="Tensor"><a href="#Tensor" class="headerlink" title="Tensor"></a>Tensor</h2><p>字面上的意思是张量，即：类型化的多维数组，图的边。（可理解为待加工的原材料和产成品，INPUT流和OUTPUT流）</p>
+<h2 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h2><p>执行计算的单元，图的节点。（加工车间）</p>
+<h2 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h2><p>一张有边有点的图，表示了需要进行计算的任务。（生产工艺计划）</p>
+<h2 id="Sesion"><a href="#Sesion" class="headerlink" title="Sesion"></a>Sesion</h2><p>称之为会话的上下文，用于执行图。（调度指令）</p>
+<p>Graph仅仅定义了所有Operation和Tensor流向，而Session根据Graph来调度资源，Operation根据S的调度来计算。</p>
+<h1 id="第一个TensorFlow程序"><a href="#第一个TensorFlow程序" class="headerlink" title="第一个TensorFlow程序"></a>第一个TensorFlow程序</h1><h2 id="Graph-Session框架"><a href="#Graph-Session框架" class="headerlink" title="Graph+Session框架"></a>Graph+Session框架</h2><p>假设你已经安装了TensorFlow:<br><figure class="highlight plain"><figcaption><span>install tensorflow -i</span><a href="https://pypi.douban.com/simple```" target="_blank" rel="external">link</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">那么现在我们开始：  </div><div class="line">首先定义一个图来做些简单的计算（实际上tensorflow默认会定义一个）：</div></pre></td></tr></table></figure></p>
+<p>import tensorflow as tf<br>graph = tf.Graph()<br>with graph.as_default():<br>    a = tf.Variable(3, name=’a’)<br>    b = tf.Variable(2, name=’b’)<br>    result = a + b<br>    initialize = tf.global_variables_initializer()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">这段做了什么？载入tensorflow后，实例化一个Graph类，然后定义a，b两个变量，并让他们相加，最后初始化所有变量。这样Graph就搞定了。至此并没有进行任何计算，只是一个“生产计划”。  </div><div class="line">接下来定义一个Session，即下达“调度指令”开始生产。</div></pre></td></tr></table></figure></p>
+<p>with  tf.Session(graph=graph) as sess:<br>    sess.run(initialize)<br>    res = sess.run(result)<br>   print(res)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">加入这段程序后运行，结果为5。 可以看出，只有在定义Session后，程序才真正执行计算。</div></pre></td></tr></table></figure></p>
+<p>W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn’t compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.<br>W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn’t compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.<br>W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn’t compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.<br>W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn’t compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.<br>W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn’t compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.<br>W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn’t compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.</p>
+<p>5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">运行结果中可能会出现Warning，不碍事，如果不想看见，则可以在import前面加两行：</div></pre></td></tr></table></figure></p>
+<p>import os<br>os.environ[‘TF_CPP_MIN_LOG_LEVEL’]=’2’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">## Tensorboard：可视化结果</div><div class="line">Tensorflow框架提供了强大的可视化功能，可以通过Tensorboard查看graph。如果是用pip安装的tensorflow，那么可以直接在命令行窗口输入以下命令来开启：  </div><div class="line"></div><div class="line">```tensorboard --logdir=/path/to/log-directory</div></pre></td></tr></table></figure></p>
+<p>参数 logdir 指向 SummaryWriter 序列化数据的存储路径。如果 logdir 目录的子目录中包含另一次运行时的数据，那么 TensorBoard 会展示所有运行的数据。一旦 TensorBoard 开始运行，你可以通过在浏览器中输入 localhost:6006 来查看 TensorBoard 。</p>
+<p>T<br>A<br>R</p>
+
+  
+
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机视觉</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/机器学习/" class="article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/03/TensorFlow入门/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-深度学习初探" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/02/深度学习初探/">深度学习初探</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/02/深度学习初探/" class="archive-article-date">
+  	<time datetime="2017-04-02T02:58:41.000Z" itemprop="datePublished">2017-04-02</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+  
+
+
+<div id="toc" class="toc-article">
+  <strong class="toc-title">文章目录</strong>
+
+</div>
+
+
+
+    <p>S<br>T<br>A<br>R<br>深度学习在当下炙手可热，它与传统的统计学习方法有什么不同呢？</p>
+
+  
+
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/机器学习/" class="article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/02/深度学习初探/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-现代数学与数学空间" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -874,307 +1157,6 @@
 
 
   
-    <article id="post-Live-a-boxer-life" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/11/Live-a-boxer-life/">Live-a-boxer-life</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/11/Live-a-boxer-life/" class="archive-article-date">
-  	<time datetime="2017-02-10T21:41:07.000Z" itemprop="datePublished">2017-02-11</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-  
-
-
-
-
-    <pre><code>早晨5:25分。  
-我又在挣扎是否起床，外面天寒地冻，内心又在OS“五点钟起床的人生才有希望”。  
-不知道为什么，随着年纪渐长，反而起床要靠前一夜打的鸡血来帮助。比如时不时跳出来刷屏的科比曰——”我知道每天凌晨洛杉矶四点的样子“，还有XX董事长作息时间表——清一色的五点起床。  
-这些确实给了我们激励。  
-但是，回想小时候一年级到初三九年田径队的生活，发现小时候的自己就已经能做到。无论严寒还是酷暑，每天五点半准时到达训练场地，热身压腿，50米高抬腿，车轮跑，起跑练习，60米往返跑，100米竞速跑，等等。每天来一套。汗流浃背之后再赶到教室上课。种子选手在放学前一个小时还有一个特权——提前下课到田径场训练——直至傍晚6点。周而复始。  
-苦吗？并不觉得。  
-最高兴的是市运会比赛归来（大家还是上课途中），老师问到“跑来第几呀？”然后能淡淡说上一句——“第一。“  
-心里的那种得色，也是没谁了。但是不幸如果哪一次没拿第一，感觉羞愧得没办法开口回答，总觉着愧对了提前下课的特权。  
-实际名次多少当时并没有想得太多，能支撑这么长久的坚持的，是享受竞速的感觉，享受”准备超越“到”超越“的过程，无论是超越自己还是超越对手。这样的过程能保持人生的一种竞技状态——自律、刻苦、追求卓越。  
-要求自己早起的人，也无非是想要找到这种竞技状态，像运动员一样超越，像拳击手一样去打到眼前的困难。  
-因此，不要人生多灿烂，只要一直在路上，管他山高路远，管他虎豹豺狼，就是要攀登要跨越。  
-哎呀，被小时候的自己打了个鸡血，学习去了。   
-写于2017年元宵。
-</code></pre>
-  
-
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/11/Live-a-boxer-life/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Mapreduce是小学生都会玩的小把戏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/09/Mapreduce是小学生都会玩的小把戏/">MapReduce是小学生都会玩的小把戏</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/09/Mapreduce是小学生都会玩的小把戏/" class="archive-article-date">
-  	<time datetime="2017-02-09T06:28:29.000Z" itemprop="datePublished">2017-02-09</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-  
-
-
-
-
-    <p>MapReduce是啥，其实思想很简单，我们小学生问题活动时经常会做，比如，我们要清点图书馆里的书总共有多少本，那么会有如下安排:  </p>
-<ol>
-<li><p>小明数1号书架，大波数2号书架…Map的过程就是分配的过程  </p>
-</li>
-<li><p>把每个人数了多少本书加总…Reduce的过程就是汇总的过程  </p>
-</li>
-</ol>
-<p>显然，人越多数得越快，这就是MapReduce。  </p>
-<p>（完）</p>
-
-  
-
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mapreduce</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hadoop/" class="article-tag-list-link color2">hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/09/Mapreduce是小学生都会玩的小把戏/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-在archlinux上安装mongodb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/09/在archlinux上安装mongodb/">在archlinux上安装mongodb</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/09/在archlinux上安装mongodb/" class="archive-article-date">
-  	<time datetime="2017-02-09T02:51:40.000Z" itemprop="datePublished">2017-02-09</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-  
-
-
-<div id="toc" class="toc-article">
-  <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#用pacman命令安装mongodb"><span class="toc-text">用pacman命令安装mongodb</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用whereis命令找到mongo的执行文件夹"><span class="toc-text">用whereis命令找到mongo的执行文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建一个数据存储文件夹"><span class="toc-text">创建一个数据存储文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建config文件指定mongodb的数据写入路径"><span class="toc-text">创建config文件指定mongodb的数据写入路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#带参数启动mongod"><span class="toc-text">带参数启动mongod</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动mongo"><span class="toc-text">启动mongo</span></a></li></ol>
-</div>
-
-
-
-    <h4 id="用pacman命令安装mongodb"><a href="#用pacman命令安装mongodb" class="headerlink" title="用pacman命令安装mongodb"></a>用pacman命令安装mongodb</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo pacman -S mongodb</div></pre></td></tr></table></figure>
-<h4 id="用whereis命令找到mongo的执行文件夹"><a href="#用whereis命令找到mongo的执行文件夹" class="headerlink" title="用whereis命令找到mongo的执行文件夹"></a>用whereis命令找到mongo的执行文件夹</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ whereis mongo</div></pre></td></tr></table></figure>
-<p>一般是<code>/usr/bin</code></p>
-<h4 id="创建一个数据存储文件夹"><a href="#创建一个数据存储文件夹" class="headerlink" title="创建一个数据存储文件夹"></a>创建一个数据存储文件夹</h4><p>选择一个路径，比如/data/db，使用mkdir命令创建：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo mkdir /data/db</div></pre></td></tr></table></figure></p>
-<p>顺便把文件夹的权限改为可读写，否则数据文件无法写入，mongodb也没办法顺利启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo chmod 777 /data/db</div></pre></td></tr></table></figure></p>
-<p>顺带提一下，几种文件权限的数字代码：</p>
-<pre><code>-rw——- (600) 只有所有者才有读和写的权限  
--rw-r–r– (644) 只有所有者才有读和写的权限，组群和其他人只有读的权限
--rwx—— (700) 只有所有者才有读，写，执行的权限
--rwxr-xr-x (755) 只有所有者才有读，写，执行的权限，组群和其他人只有读和执行的权限
--rwx–x–x (711) 只有所有者才有读，写，执行的权限，组群和其他人只有执行的权限
--rw-rw-rw- (666) 每个人都有读写的权限
--rwxrwxrwx (777) 每个人都有读写和执行的权限
-</code></pre><h4 id="创建config文件指定mongodb的数据写入路径"><a href="#创建config文件指定mongodb的数据写入路径" class="headerlink" title="创建config文件指定mongodb的数据写入路径"></a>创建config文件指定mongodb的数据写入路径</h4><p>cd到/usr/bin里面（当然你也可以换另一个路径）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano mongodb.config</div></pre></td></tr></table></figure></p>
-<p>然后在文件中写一行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dbpath=/data/db</div></pre></td></tr></table></figure></p>
-<p>作用就是在启动时告诉mongod说我们的数据是要存在/data/db这个地方。<br>还可以直接用命令行指定（如果不担心自己忘记路径的话）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongod --dbpath &quot;/data/db&quot;</div></pre></td></tr></table></figure></p>
-<h4 id="带参数启动mongod"><a href="#带参数启动mongod" class="headerlink" title="带参数启动mongod"></a>带参数启动mongod</h4><p>cd到/usr/bin里面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongod --config mongodb.config</div></pre></td></tr></table></figure></p>
-<p>这样就能启动mongod了，需要注意的是注意区分mongod和mongo，<strong>mongod是service processing，而mongo是client shell</strong>。<br>当你看到这一句时说明已经成功启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">2017-02-09T11:09:45.613+0800 I NETWORK  [thread1] waiting for connections on port 27017</div></pre></td></tr></table></figure></p>
-<h4 id="启动mongo"><a href="#启动mongo" class="headerlink" title="启动mongo"></a>启动mongo</h4><p>这时启动另一个命令行终端，然后启动mongo，OK了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongo</div></pre></td></tr></table></figure></p>
-
-  
-
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">archlinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/09/在archlinux上安装mongodb/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1297,18 +1279,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mapreduce</a>
               </li>
              
@@ -1325,7 +1295,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
+                <a href="javascript:void(0)" class="js-tag color3">分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">IQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">范数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">numpy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">archlinux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1341,31 +1339,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">范数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">archlinux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">凸优化</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">scrapy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1377,7 +1363,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">凸优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
