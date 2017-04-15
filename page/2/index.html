@@ -679,7 +679,7 @@
 
 <div id="toc" class="toc-article">
   <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#统计描述"><span class="toc-text">统计描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-describe"><span class="toc-text">frame.describe()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-mean"><span class="toc-text">frame.mean()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-apply-lambda-x-x-max-x-min"><span class="toc-text">frame.apply(lambda x:x.max()-x.min())</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缺失值处理"><span class="toc-text">缺失值处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-isnull"><span class="toc-text">frame.isnull()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-dropna"><span class="toc-text">frame.dropna()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-replace"><span class="toc-text">frame.replace()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-fillna-value-x"><span class="toc-text">frame.fillna(value=x)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型查看"><span class="toc-text">数据类型查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-dtypes"><span class="toc-text">frame.dtypes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-astype"><span class="toc-text">frame.astype()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-sort-index-axis-1-ascending-False"><span class="toc-text">frame.sort_index(axis=1,ascending=False)</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#统计描述"><span class="toc-text">统计描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-describe"><span class="toc-text">frame.describe()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-mean"><span class="toc-text">frame.mean()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-apply-lambda-x-x-max-x-min"><span class="toc-text">frame.apply(lambda x:x.max()-x.min())</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缺失值处理"><span class="toc-text">缺失值处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-isnull"><span class="toc-text">frame.isnull()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-dropna"><span class="toc-text">frame.dropna()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-replace"><span class="toc-text">frame.replace()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-fillna-value-x"><span class="toc-text">frame.fillna(value=x)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型查看"><span class="toc-text">数据类型查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-dtypes"><span class="toc-text">frame.dtypes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-astype"><span class="toc-text">frame.astype()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frame-sort-index-axis-1-ascending-False"><span class="toc-text">frame.sort_index(axis=1,ascending=False)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删增改查合"><span class="toc-text">删增改查合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pd-concat-frame1-frame2-frame3-axis-1"><span class="toc-text">pd.concat([frame1,frame2,frame3],axis=1)</span></a></li></ol></li></ol>
 </div>
 
 
@@ -696,6 +696,9 @@
 <h2 id="数据类型查看"><a href="#数据类型查看" class="headerlink" title="数据类型查看"></a>数据类型查看</h2><h3 id="frame-dtypes"><a href="#frame-dtypes" class="headerlink" title="frame.dtypes"></a>frame.dtypes</h3><p>查看每列的数据类型，Pandas默认可以读出int和float64，其它的都处理为object，需要转换格式的一般为日期时间。</p>
 <h3 id="frame-astype"><a href="#frame-astype" class="headerlink" title="frame.astype()"></a>frame.astype()</h3><p>对整个DataFrame或某一列进行数据格式转换，支持Python和NumPy的数据类型。</p>
 <h3 id="frame-sort-index-axis-1-ascending-False"><a href="#frame-sort-index-axis-1-ascending-False" class="headerlink" title="frame.sort_index(axis=1,ascending=False)"></a>frame.sort_index(axis=1,ascending=False)</h3><p>axis=1表示对所有的columns进行排序，下面的数也跟着发生移动。后面的ascending=False表示按降序排列，参数缺失时默认升序。</p>
+<h2 id="删增改查合"><a href="#删增改查合" class="headerlink" title="删增改查合"></a>删增改查合</h2><h3 id="pd-concat-frame1-frame2-frame3-axis-1"><a href="#pd-concat-frame1-frame2-frame3-axis-1" class="headerlink" title="pd.concat([frame1,frame2,frame3],axis=1)"></a>pd.concat([frame1,frame2,frame3],axis=1)</h3><p>如果frame为Dataframe类型或Series类型，则可用concat对其进行上下合并。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pd.concat(objs, axis=0, join=&apos;outer&apos;, join_axes=None, ignore_index=False,</div><div class="line">       keys=None, levels=None, names=None, verify_integrity=False)</div></pre></td></tr></table></figure></p>
+<p>axis是按什么轴进行连接，axis=1是横向拼，axis=0是纵向拼接。<br>join=inner时候，按axis取索引的交集， join=’outer’时取并集<br>当有join_axis传入时，可以制定根据哪个座标轴来对齐拼接。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">result = pd.concat([df1, df4], axis=1, join_axes=[df1.index])</div></pre></td></tr></table></figure></p>
+<p>这时按df1的纵轴来对齐拼接，即保留df1的纵轴座标。  </p>
 
   
 
@@ -1265,6 +1268,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mapreduce</a>
               </li>
              
@@ -1277,10 +1284,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">分析</a>
               </li>
              
@@ -1289,27 +1292,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IQ</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">范数</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">numpy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">archlinux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1325,15 +1320,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">IQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">范数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">archlinux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">凸优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1349,23 +1364,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">凸优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
             
             <div class="clearfix"></div>
